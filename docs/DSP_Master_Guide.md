@@ -8,7 +8,7 @@
 
 **Working reference:** This is the maintained master guide for the DSP chat, as requested by the user on 16 October 2026. Use it as the main reference unless the user directs otherwise. Update verified course requirements from official HMMY458 sources and record actual work progress separately from assumptions. Keep DSP and ΨΥΣ course information separate.
 
-**Latest update — 16 October 2026:** Rechecked the live announcements, Lab 1 assignment and assignment list, group-registration page, and October calendar. Lab 1's deadline and deliverables are unchanged. Added the confirmed 22 October tutorial, current eClass group status, and a work-status register. The detailed PDF transcription and derived mathematical checks below are preserved from the supplied guide; the PDF was not independently reread during this update.
+**Latest update — 22 October 2026:** Read the original assignment and the supplied 30-page preparation PDF. Added simple scripts, a working report and seven figures; 15 numerical checks and a clean-folder run passed. See [shared status](../STATUS.md) and [verification evidence](../lab1/VERIFICATION.md). Owners and group naming remain open by user instruction. The 1B sampling frequency and 3A phase unit remain unresolved; neither PDF clarifies them. No final ZIP or submission has been made. Live eClass dates were last checked on 16 October; the supplied assignment still gives 29 October at 23:30.
 
 ## 1. Immediate priorities and deadlines
 
@@ -23,7 +23,7 @@
 
 **Current registration status:** The signed-in eClass account is shown as belonging to **Ομάδα Χρηστών 69**, marked **Η Ομάδα Μου**, with **3/3 members**. Registration is therefore shown as complete for this account as of 16 October. The October 18 deadline remains the official deadline for students not yet registered. [Group page][D5]
 
-**Correction to earlier chat context:** The earlier DSP chats associated the work with Group 41 and a GitHub repository described as Group 41. The live eClass membership now shows Group 69; use **69** for the current formal eClass group. The repository's current group label and its relationship to Group 69 have not been checked. Do not infer eClass registration from a repository name or description.
+**Correction to earlier chat context:** The earlier DSP chats associated the work with Group 41 and a GitHub repository described as Group 41. The live eClass membership now shows Group 69; this is historical membership evidence; **final project/group naming remains open by user instruction on 22 October**. The repository's current group label and its relationship to Group 69 have not been checked. Do not infer eClass registration from a repository name or description.
 
 ## 2. Group, attendance and grading rules
 
@@ -116,7 +116,7 @@ x(t) = 20 cos(10πt) - 40 sin(5πt)
 - [ ] Explain what happens to the reconstructed signal as the sampling period changes, and why.
 - [ ] Address whether the reconstructed result changes when the original plotting interval becomes **`0 < t < 5000 ms`**, i.e. **5 seconds**.
 
-**Preparation/implementation guidance:** distinguish actual reconstruction from simply drawing line segments between samples. The theoretical section introduces ideal low-pass/sinc reconstruction, but the question does not mandate one particular numerical reconstruction routine. State your method. A longer observation interval changes spectral resolution and finite-record effects; it does not raise the sampling rate or remove aliasing by itself.
+**Implementation as of 22 October:** follows the preparation notes’ original-curve and sampled-point plots, with a written discussion of reconstruction from the specified theory. No numerical interpolation or reconstruction routine is added. A longer observation interval changes spectral resolution and finite-record effects; it does not raise the sampling rate or remove aliasing by itself.
 
 Treat **10 Hz** as the boundary case, not a blanket guarantee for all signal phases at the Nyquist limit. For this exact signal the highest-frequency term is a cosine; discuss the actual samples and phase rather than claiming every sinusoid at the boundary vanishes. [PDF, pp. 2–3][D2]
 
@@ -269,7 +269,7 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 |---|---|
 | Exercise 1 frequency units | Hz is requested; no physical sample interval is supplied. Declare an assumption or obtain clarification. |
 | Exercise 1B spectra | The wording refers to the preceding signals without an explicit list; show both inputs together and consider including the convolution spectrum clearly labelled. |
-| Exercise 2 reconstruction | Theory introduces ideal reconstruction; a specific numerical routine is not prescribed. Explain the method used. |
+| Exercise 2 reconstruction | Uses original/samples plots from the preparation and written theory; no additional reconstruction algorithm. |
 | Exercise 3A phase | `+30` is printed without units; do not silently assert degrees. |
 | Exercise 3B phase and record length | Neither a numerical phase nor a sample count is prescribed for this subpart. |
 | Report/ZIP naming | ZIP is compulsory; report extension and filename conventions are not established. |
@@ -281,12 +281,12 @@ The supplied guide was originally reconstructed from official course sources whe
 
 ## 9. Current work status and update record
 
-| Item | Status as of 16 October 2026 | Evidence / next action |
+| Item | Status / evidence date | Evidence / next action |
 |---|---|---|
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
 | Assignment availability | **Only Lab 1 currently listed** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **Not started in the inspected repository** | Initial `main` at `d2346ae` contained only `README.txt`, with no code, figures or report. Teammates’ offline/uncommitted work remains unknown; see repository `STATUS.md`. |
+| Lab 1 implementation/report | **In progress, 22 October** | Three scripts, seven figures, 15 passing checks and a working report. Final 1B/3A choices remain pending; see [STATUS.md](../STATUS.md). |
 | Lab 1 submission | **No submission shown for the signed-in account** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
@@ -304,6 +304,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **22 October 2026:** Applied the supplied preparation notes; added the first verified Lab 1 implementation, seven figures and working report. Kept owners, group naming and unclear parameters open. Verification details are recorded in `lab1/VERIFICATION.md`.
 
 - **16 October 2026:** User confirmed the shared DSP repository. Inspected the initial README-only state; added repository `STATUS.md`, agent maintenance instructions and this shared guide. Recorded Labs 2–4 README dates as provisional.
 
@@ -334,3 +336,7 @@ All sources below belong to **HMMY458**. eClass may require sign-in.
 [D8]: https://www.eclass.tuc.gr/modules/announcements/index.php?course=HMMY458&an_id=71674
 [D9]: https://www.eclass.tuc.gr/modules/work/index.php?course=HMMY458
 [D10]: https://github.com/peterkontellis-spec/PSIFIAKI-EPEKSERGASIA-SYSTHMATOS
+
+## Supplied preparation notes
+
+`Lab1-Preparation.pdf` (30 pages), supplied on 22 October 2026: convolution/index support pp. 4–9, sampling/Nyquist pp. 18–21, FFT conventions and examples pp. 22–25. It supplies teaching methods, not additional assignment tasks. Exact source-copy fingerprints and the question-to-method mapping are in [VERIFICATION.md](../lab1/VERIFICATION.md).

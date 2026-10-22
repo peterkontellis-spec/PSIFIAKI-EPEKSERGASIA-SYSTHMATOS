@@ -1,7 +1,7 @@
 # DSP shared project status
 
 **Course:** HMMY458 / ΤΗΛ301 — Ψηφιακή Επεξεργασία Σήματος, 2026–2027
-**Last updated:** 16 October 2026 (Europe/Athens)
+**Last updated:** 22 October 2026 (Europe/Athens)
 **Current focus:** Lab 1 — due **29 October 2026, 23:30**
 **Main requirements reference:** [DSP Master Guide](docs/DSP_Master_Guide.md)
 
@@ -14,7 +14,8 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 ## Current snapshot
 
 - Initial inspection of `main` at `d2346ae` found only [README.txt](README.txt). No exercise code, figures, report or submission ZIP was committed at that point. Teammates' uncommitted/offline work is unknown.
-- This setup adds the shared status report, a maintained requirements guide, and agent update instructions.
+- **22 October:** added simple Lab 1 scripts, 15 passing numerical checks, seven reproducible figures and a working report. See [verification](lab1/VERIFICATION.md) and [run instructions](lab1/README.md).
+- Owners and group naming remain open by user instruction. Exercise 1B’s physical sampling rate and Exercise 3A’s phase unit are not silently assumed; final outputs for those parts remain pending.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
 
@@ -34,26 +35,26 @@ All times are Europe/Athens. Verified course requirements take priority over pla
 
 ## Lab 1 work board
 
-Suggested paths are proposals, not files claimed to exist. Owners are unassigned until the team agrees.
+The linked files now exist. Owners remain unassigned until the team agrees. Ready for review means the listed checks passed, not that the entire lab is ready to submit.
 
 | Work item | Status | Owner | Required outcome / next step |
 |---|---|---|---|
 | Shared documentation | Done | — | This file, master guide and AGENTS.md added; existing README preserved |
-| Team coordination and setup | Not started | Unassigned | Confirm owners and Group 69 naming; agree folder layout, Python dependencies and run instructions |
-| Exercise 1: convolution and FFT | Not started | Unassigned | Generate both specified sequences; formula-based convolution; NumPy/SciPy comparison; spectra and convolution theorem |
-| Exercise 2: sampling and reconstruction | Not started | Unassigned | Original signal and spectrum; 20/10/5 Hz sampling; reconstruction reasoning; 0.5 s versus 5 s comparison |
-| Exercise 3A: alias-free sampling | Not started | Unassigned | 128 samples of specified 20/60 Hz signal; justified sampling rate; Hz spectrum; phase assumption |
-| Exercise 3B: aliases at 20 kHz sampling | Not started | Unassigned | Discrete-time formula, all eight frequencies, labelled spectra, sign/phase-aware alias explanation |
-| Report and figures | Not started | Unassigned | Theory, formulas, method, results and conclusions for every subquestion; titles and labelled axes |
-| Reproducibility and review | Not started | Unassigned | Clean run from documented dependencies; check numerical results, figures and report against brief |
+| Team coordination and setup | In progress | Unassigned | [Run instructions](lab1/README.md) and pinned dependencies added; ownership and group naming remain open |
+| Exercise 1: convolution and FFT | In progress | Unassigned | [Code](lab1/exercise1.py): 1A/1C verified; 1B calculation tested but final Hz plot awaits sampling-rate clarification |
+| Exercise 2: sampling and reconstruction | Ready for review | Unassigned | [Code](lab1/exercise2.py), three figures and [report explanation](lab1/report.md); no extra numerical reconstruction method added |
+| Exercise 3A: alias-free sampling | In progress | Unassigned | [Code](lab1/exercise3.py) tested for both phase units; 128 samples at 256 Hz; final phase choice and figure pending |
+| Exercise 3B: aliases at 20 kHz sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), eight spectra in two figures, alias/sign explanation; explicit permitted choices N=400 and phase=0 |
+| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), seven reviewed figures; final 1B/3A figures and agreed group/author details remain open |
+| Reproducibility and review | Ready for review | Unassigned | [15 numerical tests](lab1/verify.py) pass; clean-folder execution reproduces all seven default figures; [evidence and limits](lab1/VERIFICATION.md) |
 | ZIP and eClass submission | Not started | Unassigned | One ZIP with separate commented code, report and execution instructions; verify upload and retain confirmation |
 
 ## Rough work order
 
-1. Agree ownership and a simple structure such as `lab1/exercise1.py`, `exercise2.py`, `exercise3.py`, `figures/`, report source and run instructions. Check for teammate work before starting duplicate implementations.
-2. Implement the three exercises, recording parameter assumptions alongside the code. Generate figures reproducibly.
-3. Write each report section while its exercise is being checked. Explain theory and observations, not only output.
-4. Review every subquestion, numerical check, plot and dependency. Ask unresolved course questions at the 22 October tutorial when useful.
+1. Review the verified scripts and working report; owners and group naming stay open.
+2. Clarify the physical sampling rate for 1B and the phase unit for 3A; generate and review those two final plots.
+3. Complete the report with those results and agreed group/author details.
+4. Repeat only affected checks after any changes, then perform a final review against every subquestion.
 5. Build the ZIP, run its code from a fresh extraction, and verify the group upload before 29 October at 23:30. Select a submission owner explicitly.
 
 ## Validation targets
@@ -64,7 +65,7 @@ Suggested paths are proposals, not files claimed to exist. Owners are unassigned
 - **Exercise 3B:** 18,000/18,500/19,000/19,500 Hz alias to magnitude-spectrum frequencies 2,000/1,500/1,000/500 Hz at 20 kHz sampling. Account for sine sign/phase. Declare phase and sample-count choices.
 - **Delivery:** every required graph is labelled; source code is separate from the report; execution instructions work; ZIP contains all required files; eClass confirmation is recorded separately.
 
-**Checks performed so far:** documentation reviewed against the maintained guide and initial repository contents. No executable project or numerical checks exist yet.
+**Checks performed so far:** 15 automated tests passed, all scripts ran in a clean copy, seven default figures reproduced byte-for-byte in the checked environment, and figures were visually reviewed. See [VERIFICATION.md](lab1/VERIFICATION.md) for sources, tolerances and remaining limits.
 
 ## Open decisions and blockers
 
@@ -73,13 +74,21 @@ Suggested paths are proposals, not files claimed to exist. Owners are unassigned
 | Task owners / submission owner | Team assigns responsibilities | Prevent duplicate work and missed upload |
 | Group 41 versus current eClass Group 69 | Confirm team naming and any old repository description | Use the correct group identification in deliverables |
 | Exercise 1 sample interval and spectra interpretation | State assumption / seek clarification; show both inputs together | Correct Hz axes and report explanation |
-| Exercise 2 reconstruction method | Choose and document a justified method | Distinguish reconstruction from connecting samples |
-| Exercise 3 phase and 3B record length | Record chosen interpretation and parameters | Reproducible results; avoid silently assuming degrees |
+| Exercise 2 reconstruction discussion | Uses the required original/samples plots and written theory, following preparation pp. 19–21 | No extra numerical reconstruction algorithm introduced |
+| Exercise 3 phase and 3B record length | 3A unit still open; 3B uses documented phase 0 and 400 samples because neither is prescribed there | Do not silently assume degrees in 3A |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
 
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 22 October 2026 — First verified implementation
+
+- Read the assignment and supplied preparation PDF; stayed with their direct sums, FFTs and simple plots.
+- Added three scripts, separate verification checks, seven figures, run instructions (including VS Code), and a working report.
+- All 15 tests passed; a clean-folder run reproduced seven figures exactly; plots visually reviewed. [Detailed evidence](lab1/VERIFICATION.md).
+- Final 1B/3A output choices, owners and group naming remain open. No final ZIP or upload performed.
+- Next: obtain the two parameter clarifications and complete the remaining report figures.
 
 ### 16 October 2026 — Shared status setup
 

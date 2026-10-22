@@ -2,6 +2,13 @@
 
 This repository is for DSP (HMMY458 / ΤΗΛ301) only. Keep ΨΥΣ work separate.
 
+## User constraints confirmed 22 October 2026
+
+- Owners and group naming remain open; do not choose them on the user's behalf.
+- Follow the assignment and supplied preparation notes strictly. Keep the solution simple, precise and easy to explain. Do not introduce optional methods or features outside the requested questions.
+- Test and verify work before pushing. State the actual checks and numerical tolerances; do not claim absolute certainty from tests.
+- Do not silently settle ambiguous specification parameters. Keep the affected final outputs pending clarification while completing independent work.
+
 ## Before working
 
 1. Read `STATUS.md` and `docs/DSP_Master_Guide.md` before making changes. The user designated the master guide as the main requirements reference unless directed otherwise.
