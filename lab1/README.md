@@ -4,9 +4,13 @@ Three short Python scripts follow the assignment and preparation notes. Owners a
 
 ## Read the report
 
-Open [report.pdf](report.pdf) for the paginated reading copy, or [report.html](report.html) for an offline browser preview with contents links. Both include all eight figures and ten typeset equations. The editable source is [report.md](report.md); refresh both reading copies when that source changes.
+**Ελληνικά:** [PDF](report_el.pdf), [προεπισκόπηση HTML](report_el.html), [επεξεργάσιμο κείμενο](report_el.md). Η ελληνική έκδοση έχει σύντομες εξηγήσεις και ελληνικούς τίτλους, άξονες και λεζάντες στα οκτώ διαγράμματα.
 
-These are review drafts. Exercise 1B’s physical sampling rate and figure, group identification and authors remain open. Neither reading copy is a final submission package.
+**English:** [PDF](report.pdf), [offline HTML preview](report.html), [editable source](report.md).
+
+Each reading copy includes eight figures and ten typeset equations. The Greek figures in `figures/el/` contain the same plotted data and axis ranges as the English originals. The exercise scripts continue to generate the original figures. When a solution or report changes, update both language sources, affected figures and their PDF/HTML copies together; these reading copies do not update automatically.
+
+These are review drafts. Exercise 1B’s physical sampling rate and figure, group identification and authors remain open. Neither language version is a final submission package.
 
 ## Run
 

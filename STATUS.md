@@ -19,6 +19,7 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 - **Re-review of `1c7c2df`:** independent checks confirm both fixes. Scores are 9 / 9 / 9 / 9 / 7.5 across the five fronts below. At that review, final 1B instructions, report theory completion and the verified ZIP remained outstanding; the theory completion is recorded below.
 - **Report theory completed, 23 October:** added the assignment’s DFT/inverse and ideal reconstruction formulas, with the preparation notes’ FFT frequency mapping. All 18 existing tests passed again; direct checks of the written transform formulas and bin mapping passed at `1e-10`. A local report preview contains all eight figures.
 - **Report presentation reviewed, 23 October:** reorganized the report with a results table, typeset equations, numbered figure captions and sources. Added [HTML](lab1/report.html) and [PDF](lab1/report.pdf) reading copies. Independent report-only estimate improved from **8.3/10 to 8.8/10**; this is not an official-grade prediction.
+- **Greek report added, 23 October:** [PDF](lab1/report_el.pdf), [HTML](lab1/report_el.html) and [Markdown](lab1/report_el.md), with shorter explanations and eight figures labelled in Greek. All ten display equations match the English source exactly; all plotted arrays and axis ranges match the original scripts exactly. The English version and solution code are unchanged. This translation has not received a new expert score.
 - Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
@@ -49,7 +50,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 2: sampling and reconstruction | Ready for review | Unassigned | [Code](lab1/exercise2.py), three figures and [report explanation](lab1/report.md); no extra numerical reconstruction method added |
 | Exercise 3A: alias-free sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), [magnitude plot](lab1/figures/ex3a_spectrum.png) and report complete; 128 samples at 256 Hz; explicit radians convention and phase independence verified |
 | Exercise 3B: aliases at 20 kHz sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), eight spectra in two figures, alias/sign explanation; explicit permitted choices N=400 and phase=0 |
-| Report and figures | In progress | Unassigned | [Report source](lab1/report.md), [PDF](lab1/report.pdf) and [HTML](lab1/report.html), completed theory additions and eight captioned figures; final 1B figure and agreed group/author details remain open |
+| Report and figures | In progress | Unassigned | Greek [source](lab1/report_el.md), [PDF](lab1/report_el.pdf) and [HTML](lab1/report_el.html), plus the retained [English version](lab1/report.md); theory complete and eight captioned figures in each language. Final 1B figure and agreed group/author details remain open |
 | Reproducibility and review | Ready for review | Unassigned | [18 numerical and rerun tests](lab1/verify.py) pass; clean-folder execution reproduces all eight default figures; [evidence and limits](lab1/VERIFICATION.md) |
 | ZIP and eClass submission | Not started | Unassigned | One ZIP with separate commented code, report and execution instructions; verify upload and retain confirmation |
 
@@ -84,7 +85,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 
 ## Report organization and presentation review — 23 October 2026
 
-The same expert reviewed the report at `37a598e` and the revised reading copies. The scores below assess the report, not the whole Python project, and do not predict the instructor’s grade.
+The same expert reviewed the English report at `37a598e` and the revised English reading copies. The scores below assess that report, not the whole Python project or the subsequent Greek translation, and do not predict the instructor’s grade.
 
 | Report area | Before → after / 10 |
 |---|---|
@@ -156,6 +157,13 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Simple Greek report
+
+- Added a Greek Markdown report and standalone HTML/PDF reading copies. Shortened explanations and translated titles, axes, legends and captions for eight figure copies; retained the English artifacts.
+- Compared all ten display equations with the English source: exact matches. Ran temporary copies of the unchanged exercise scripts and verified that every plotted array and axis range is identical before and after relabelling. No final 1B figure was generated.
+- Verified eight embedded figure hashes, eight captions, ten equations, seven HTML contents links, Greek character support and all 11 rendered PDF pages. Original code and English artifacts are unchanged. The previous 18-test result remains from the theory update; that suite was not rerun for this translation.
+- Updated report links and maintenance notes. 1B's physical sampling rate and final plot, group/author details and the verified ZIP remain open. No eClass access, submission or new expert grading. Next: resolve those open decisions, then update both report versions and verify the final package.
 
 ### 23 October 2026 — Report organization, typography and review
 

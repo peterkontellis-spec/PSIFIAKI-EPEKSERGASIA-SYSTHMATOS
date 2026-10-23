@@ -18,6 +18,8 @@
 
 **Report presentation update — 23 October 2026:** organized the report with a results table, ten typeset equations, eight numbered captions and sources. [PDF](../lab1/report.pdf) and [HTML](../lab1/report.html) reading copies are available alongside the Markdown source. Independent report-only estimate: **8.8/10**, up from 8.3/10; not a predicted official grade. Mathematical content and plotted data are unchanged. 1B and group details remain open, and eClass submissions were not touched. See [shared status](../STATUS.md) for review evidence and limits.
 
+**Greek report — 23 October 2026:** added a simpler Greek [source](../lab1/report_el.md), [PDF](../lab1/report_el.pdf) and [HTML preview](../lab1/report_el.html), including Greek labels and captions for all eight figures. The ten display equations and all plotted data/axis ranges match the English version exactly. All 11 PDF pages were rendered and checked. English artifacts and solution scripts are unchanged; the earlier expert score applies to the English report. 1B and team details remain open. No eClass access or submission action.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -296,7 +298,7 @@ The supplied guide was originally reconstructed from official course sources whe
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
 | Assignment availability | **Only Lab 1 currently listed** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude and report theory additions complete. Final 1B plot and package remain pending; see [STATUS.md](../STATUS.md). |
+| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude and report theory complete. Greek and English report copies available. Final 1B plot, team details and package remain pending; see [STATUS.md](../STATUS.md). |
 | Lab 1 submission | **No submission shown for the signed-in account** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
@@ -314,6 +316,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — Greek report:** added a shorter Greek report with eight translated figure copies and PDF/HTML reading versions. Checked exact equation/data preservation, embedded assets, links and all PDF pages. No solution-code changes, new numerical methods or new expert score; 1B/team decisions remain open.
 
 - **23 October 2026 — report presentation:** added organized, typeset PDF/HTML reading copies. Independent report estimate improved to 8.8/10; 1B/team decisions remain open. Content, assets and PDF layout checked; numerical code unchanged.
 

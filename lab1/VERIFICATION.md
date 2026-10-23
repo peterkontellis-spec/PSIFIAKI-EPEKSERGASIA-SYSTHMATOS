@@ -58,6 +58,15 @@ Tests establish agreement for these inputs and the stated tolerances. They do no
 - Rendered all 11 PDF pages for visual review. The independent expert inspected representative pages and confirmed no content regression or blocking layout defect. The HTML design scan found no issues; browser rendering was not visually rechecked because local-file browser automation is blocked.
 - No numerical tests were rerun for presentation-only changes. The 18-test result above is from the theory update. The expert’s report-only estimate increased from 8.3/10 to 8.8/10; it is not an official-grade prediction.
 
+## Greek report update — 23 October 2026
+
+- Added [Greek Markdown](report_el.md), [PDF](report_el.pdf) and [standalone HTML](report_el.html), with shorter explanations and eight Greek-labelled figures in `figures/el/`. All ten display equations match the English source exactly. Numerical choices, conclusions and pending items were preserved.
+- Ran temporary copies of the unchanged exercise scripts twice, first capturing the original plotted data and then translating only Matplotlib text. SHA-256 comparisons of all plotted line coordinates, collection segments/offsets and axis ranges matched for all eight figures, both before and after saving. No 1B rate was selected and no 1B figure was produced.
+- Checked embedded PNG bytes against the Greek source files, eight numbered captions, ten equations and seven working contents anchors. HTML uses `lang="el"`, contains all assets locally, and has no external resources or scripts. Output and repository copies are identical.
+- Checked Greek character coverage in the embedded fonts. The PDF contains 11 pages and 18 images (eight figures and ten equations). All pages were rendered and visually inspected, with representative pages inspected at full size; no missing characters, clipped equations or overlapping text were found. HTML browser rendering was not visually rechecked because local-file automation is blocked.
+- Verified that the three solution scripts, verification script, eight original figures and English report files remain byte-for-byte unchanged. No new numerical method was introduced; the 18-test suite was not rerun for translation-only changes. Existing scores apply to the earlier English review, not a new review of this translation.
+- The report remains a draft pending 1B, team identification and final package verification. No eClass access or submission action was performed.
+
 ## Reproduce
 
 From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:
