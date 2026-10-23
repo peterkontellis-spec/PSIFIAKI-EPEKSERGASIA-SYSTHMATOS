@@ -67,6 +67,15 @@ Tests establish agreement for these inputs and the stated tolerances. They do no
 - Verified that the three solution scripts, verification script, eight original figures and English report files remain byte-for-byte unchanged. No new numerical method was introduced; the 18-test suite was not rerun for translation-only changes. Existing scores apply to the earlier English review, not a new review of this translation.
 - The report remains a draft pending 1B, team identification and final package verification. No eClass access or submission action was performed.
 
+## Greek review and wording/layout polish — 23 October 2026
+
+- The independent Python expert reviewed `1f67156`, confirmed the translation preserves the mathematics, and reran all 18 tests in an isolated copy: passed. A separate aesthetics agent inspected the Greek report. Both review means were 8.8/10; the scorecards are in [STATUS.md](../STATUS.md). These are pre-polish scores, not instructor-grade predictions.
+- Applied the three reviewed wording edits and the 3B high-frequency continuation heading. Enlarged plot titles, axis labels, ticks and legends in Figures 4–5 and 7–8. Moved sampling legends above their axes to keep the curves visible. Tightened summary-table padding to prevent an isolated overflow line; the final PDF still has 11 pages.
+- Ran the unchanged exercise scripts in temporary copies to rebuild the Greek figures. All eight plotted-data hashes (line coordinates, collection segments/offsets and axis limits) match the unmodified plots exactly before and after rendering. Only four Greek PNGs changed; the other four Greek figures and all English figures remain unchanged.
+- All ten display equations still match the English source exactly. Checked eight embedded Greek PNGs against their files, eight captions, seven HTML contents links, the page-10 continuation heading and pending 1B/team notices. The final PDF has 18 image objects, with no missing-glyph or unresolved-rendering markers. All 11 pages were rendered and visually reviewed, including detailed checks of the summary, sampling figures and continuation page.
+- Solution scripts, verification code and English report files are byte-for-byte unchanged. The 1B text and pending notices remain unchanged, and no 1B figure was generated. No new algorithm or parameter choice was introduced. The 18-test suite was not rerun for these presentation-only edits; its latest pass is the independent Greek review recorded above.
+- HTML assets and structure were checked; local-file browser automation remains unavailable. No final ZIP, live deadline recheck or eClass access/submission action.
+
 ## Reproduce
 
 From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:

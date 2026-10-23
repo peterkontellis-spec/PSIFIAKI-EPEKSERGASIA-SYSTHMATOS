@@ -20,6 +20,8 @@
 
 **Greek report — 23 October 2026:** added a simpler Greek [source](../lab1/report_el.md), [PDF](../lab1/report_el.pdf) and [HTML preview](../lab1/report_el.html), including Greek labels and captions for all eight figures. The ten display equations and all plotted data/axis ranges match the English version exactly. All 11 PDF pages were rendered and checked. English artifacts and solution scripts are unchanged; the earlier expert score applies to the English report. 1B and team details remain open. No eClass access or submission action.
 
+**Greek report review and polish — 23 October 2026:** at `1f67156`, the Python expert and aesthetics agent each rated the Greek report 8.8/10; the expert independently passed all 18 tests. Applied clearer wording, larger text in four multi-panel plots and a 3B continuation heading. Verified unchanged equations, plotted data and axis ranges, with all 11 PDF pages visually checked. These edits have not received a new score. The [Greek PDF](../lab1/report_el.pdf) and [HTML](../lab1/report_el.html) are refreshed; [shared status](../STATUS.md) records the evidence. 1B and team details remain open, and eClass was not accessed.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -316,6 +318,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — Greek review and polish:** recorded both 8.8/10 Greek report reviews and the expert's independent 18-test pass. Applied wording and figure-readability fixes, with equations/data preserved and PDF/HTML checked. 1B, team details and final ZIP remain open; no new numerical methods or eClass actions.
 
 - **23 October 2026 — Greek report:** added a shorter Greek report with eight translated figure copies and PDF/HTML reading versions. Checked exact equation/data preservation, embedded assets, links and all PDF pages. No solution-code changes, new numerical methods or new expert score; 1B/team decisions remain open.
 
