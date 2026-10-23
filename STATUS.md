@@ -15,7 +15,8 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 
 - Initial inspection of `main` at `d2346ae` found only [README.txt](README.txt). No exercise code, figures, report or submission ZIP was committed at that point. Teammates' uncommitted/offline work is unknown.
 - **22 October:** added simple Lab 1 scripts, 15 passing numerical checks, seven reproducible figures and a working report. See [verification](lab1/VERIFICATION.md) and [run instructions](lab1/README.md).
-- Owners and group naming remain open by user instruction. Exercise 1B’s physical sampling rate and Exercise 3A’s phase unit are not silently assumed; final outputs for those parts remain pending.
+- **23 October:** fixed stale generated figures and completed the required 3A magnitude plot. All 18 tests pass; all eight default figures reproduce byte-for-byte. The radians convention is explicit, and phase-unit independence of this magnitude result is verified.
+- Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
 
@@ -43,17 +44,17 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Team coordination and setup | In progress | Unassigned | [Run instructions](lab1/README.md) and pinned dependencies added; ownership and group naming remain open |
 | Exercise 1: convolution and FFT | In progress | Unassigned | [Code](lab1/exercise1.py): 1A/1C verified; 1B calculation tested but final Hz plot awaits sampling-rate clarification |
 | Exercise 2: sampling and reconstruction | Ready for review | Unassigned | [Code](lab1/exercise2.py), three figures and [report explanation](lab1/report.md); no extra numerical reconstruction method added |
-| Exercise 3A: alias-free sampling | In progress | Unassigned | [Code](lab1/exercise3.py) tested for both phase units; 128 samples at 256 Hz; final phase choice and figure pending |
+| Exercise 3A: alias-free sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), [magnitude plot](lab1/figures/ex3a_spectrum.png) and report complete; 128 samples at 256 Hz; explicit radians convention and phase independence verified |
 | Exercise 3B: aliases at 20 kHz sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), eight spectra in two figures, alias/sign explanation; explicit permitted choices N=400 and phase=0 |
-| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), seven reviewed figures; final 1B/3A figures and agreed group/author details remain open |
-| Reproducibility and review | Ready for review | Unassigned | [15 numerical tests](lab1/verify.py) pass; clean-folder execution reproduces all seven default figures; [evidence and limits](lab1/VERIFICATION.md) |
+| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), eight reviewed figures; final 1B figure and agreed group/author details remain open |
+| Reproducibility and review | Ready for review | Unassigned | [18 numerical and rerun tests](lab1/verify.py) pass; clean-folder execution reproduces all eight default figures; [evidence and limits](lab1/VERIFICATION.md) |
 | ZIP and eClass submission | Not started | Unassigned | One ZIP with separate commented code, report and execution instructions; verify upload and retain confirmation |
 
 ## Rough work order
 
 1. Review the verified scripts and working report; owners and group naming stay open.
-2. Clarify the physical sampling rate for 1B and the phase unit for 3A; generate and review those two final plots.
-3. Complete the report with those results and agreed group/author details.
+2. Clarify the physical sampling rate for 1B; generate and review its final plot.
+3. Complete the report with that result and agreed group/author details.
 4. Repeat only affected checks after any changes, then perform a final review against every subquestion.
 5. Build the ZIP, run its code from a fresh extraction, and verify the group upload before 29 October at 23:30. Select a submission owner explicitly.
 
@@ -61,11 +62,11 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 
 - **Exercise 1:** lengths 9 and 8; full convolution length 16, indices −6 through 9; formula result agrees with library result; padded FFT product agrees with linear convolution within a stated tolerance. State the sample interval used for the Hz axis.
 - **Exercise 2:** components at 5 and 2.5 Hz; Nyquist rate 10 samples/s; correct sample times at 20, 10 and 5 Hz; explain the boundary case and finite-record/reconstruction effects. A longer record does not fix aliasing.
-- **Exercise 3A:** exactly 128 samples; choose a rate above 120 Hz to avoid the boundary case; record whether `+30` is interpreted as radians or otherwise clarified.
+- **Exercise 3A:** exactly 128 samples; choose a rate above 120 Hz to avoid the boundary case; record the explicit radians convention for `+30`; at the chosen exact FFT bins, verify that radians/degrees give the same magnitudes within `1e-12`.
 - **Exercise 3B:** 18,000/18,500/19,000/19,500 Hz alias to magnitude-spectrum frequencies 2,000/1,500/1,000/500 Hz at 20 kHz sampling. Account for sine sign/phase. Declare phase and sample-count choices.
 - **Delivery:** every required graph is labelled; source code is separate from the report; execution instructions work; ZIP contains all required files; eClass confirmation is recorded separately.
 
-**Checks performed so far:** 15 automated tests passed, all scripts ran in a clean copy, seven default figures reproduced byte-for-byte in the checked environment, and figures were visually reviewed. See [VERIFICATION.md](lab1/VERIFICATION.md) for sources, tolerances and remaining limits.
+**Checks performed so far:** 18 automated tests passed, including both stale-output rerun regressions. All scripts ran in a clean copy; eight default figures reproduced byte-for-byte in the checked environment. The seven existing figures were visually reviewed on 22 October and are unchanged; the new 3A figure was visually reviewed on 23 October. The largest all-bin radians/degrees magnitude difference was `3.7623497442574107e-14` (absolute tolerance `1e-12`). See [VERIFICATION.md](lab1/VERIFICATION.md) for sources, tolerances and remaining limits.
 
 ## Open decisions and blockers
 
@@ -75,7 +76,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Group 41 versus current eClass Group 69 | Confirm team naming and any old repository description | Use the correct group identification in deliverables |
 | Exercise 1 sample interval and spectra interpretation | State assumption / seek clarification; show both inputs together | Correct Hz axes and report explanation |
 | Exercise 2 reconstruction discussion | Uses the required original/samples plots and written theory, following preparation pp. 19–21 | No extra numerical reconstruction algorithm introduced |
-| Exercise 3 phase and 3B record length | 3A unit still open; 3B uses documented phase 0 and 400 samples because neither is prescribed there | Do not silently assume degrees in 3A |
+| Exercise 3 phase and 3B record length | 3A uses an explicit radians convention; the printed unit remains unconfirmed, but the requested magnitude is invariant at the chosen bins. 3B uses documented phase 0 and 400 samples | 3A magnitude complete; no claim of staff clarification |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
 
 ## Independent Python expert review — 23 October 2026
@@ -90,7 +91,7 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 | Testing and reproducibility | 8 | All 15 tests and seven exact figure reproductions passed; stale-output behavior reproduced |
 | Report completeness and submission readiness | 6.5 | Substantial working report; two figures and final verified ZIP remain unfinished |
 
-### Findings
+### Findings at the reviewed commit
 
 1. **Missing required figures:** 1B needs an explicit physical frequency scale. The 3A phase choice changes sample values but does not change the requested magnitude spectrum at the chosen bin-aligned frequencies; withholding that figure is a conservative process choice, not a mathematical necessity. The final interpretation remains open under the current user instruction.
 2. **P2 — earlier outputs survive a pending run:** generate `ex1_spectra.png` using `exercise1.py --fs 1` and `ex3a_spectrum.png` using `exercise3.py --phase-unit degrees`, then rerun both scripts without options. Both files remain unchanged while the scripts report their sections as pending. Relevant branches: [exercise1.py](lab1/exercise1.py), line 79, and [exercise3.py](lab1/exercise3.py), line 43 in the reviewed commit. Explicitly handle or flag existing parameter-dependent outputs and verify this run sequence before packaging. The seven currently committed default figures are unaffected.
@@ -98,11 +99,21 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 
 **Evidence:** independent clean-copy run passed all 15 tests and regenerated all seven committed default PNGs byte-for-byte; selected figures visually checked. No fresh dependency installation or other-OS validation was performed. Test results do not establish absolute certainty.
 
-**Next:** settle the final parameter interpretations, address stale outputs, generate the remaining figures, finish the report and verify the extracted ZIP.
+**Resolution — 23 October 2026:** the stale-output issue is fixed and covered by rerun tests. A default Exercise 1 run removes only its old `ex1_spectra.png`; Exercise 3 always regenerates its 3A plot with the current phase convention. The 3A magnitude figure and explanation are complete after verifying phase independence. The scores above remain a historical assessment of `1d70f60`, not a new review.
+
+**Next:** settle 1B’s physical sampling rate, generate its plot, finish the report and verify the extracted ZIP.
 
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Stale-figure fix and completed 3A magnitude
+
+- Removed the stale 1B figure when the physical frequency scale is omitted; always regenerate 3A with the current explicit phase convention.
+- Added the required 3A magnitude plot and its FFT-bin explanation without adding solution methods. Both phase interpretations give magnitudes within `1e-12`; samples differ.
+- All 18 tests passed, including explicit-parameter/default reruns and unrelated-file preservation. A clean copy reproduced all eight default PNGs byte-for-byte; the new plot was visually reviewed.
+- Updated report, run instructions, verification evidence and master guide. 1B, group/author details and the final ZIP remain open.
+- Next: obtain 1B’s physical sampling rate and complete the remaining report/package.
 
 ### 23 October 2026 — Independent Python expert review
 

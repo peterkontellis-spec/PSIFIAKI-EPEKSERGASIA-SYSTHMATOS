@@ -26,12 +26,17 @@ The scripts save PNG figures in `lab1/figures/` and do not require interactive p
 
 Open this repository as one folder in VS Code and use its integrated terminal for the commands above. No extra workspace, MATLAB or SciPy is required. If using VS Code's Python run button, select the interpreter inside `.venv`; running through the activated terminal is sufficient without editor-specific configuration. View the saved PNGs and use Markdown Preview for `report.md`. The report still needs completion and a final document format, and the required ZIP is submitted through eClass in a browser.
 
-## Two outputs remain pending
+## Exercise 1B remains pending
 
-- **1B:** neither PDF gives a sampling frequency for the discrete sequences while the question requests Hz. The script does not invent one. After clarification, run `exercise1.py --fs VALUE`, replacing VALUE with the chosen frequency in Hz.
-- **3A:** the assignment prints `+30` without a unit. After clarification, run `exercise3.py --phase-unit radians` or `exercise3.py --phase-unit degrees`. The code supports and checks either interpretation but no final 3A figure is committed yet.
+Neither PDF gives a sampling frequency for the Exercise 1 sequences while the question requests Hz. The script does not invent one. After clarification, run `exercise1.py --fs VALUE`, replacing VALUE with the chosen frequency in Hz. Running without `--fs` removes only the script-generated `figures/ex1_spectra.png`, if present, so an earlier Hz choice cannot remain in the current output folder. Other files are left alone.
 
-These options only supply missing physical parameters; they do not select alternative numerical methods. With no options, the scripts generate the seven verified figures for 1A/1C, 2 and 3B. They print the pending sections explicitly. A successful run does not mean the whole assignment is finished.
+## Exercise 3A magnitude plot
+
+The default `exercise3.py` now completes the required plot using the explicit radians convention for the printed `+30`. At 128 samples and 256 Hz, both tones fall on distinct FFT bins, so interpreting the phase as degrees instead gives the same magnitudes within floating-point tolerance. The report explains this; it does not claim that the unspecified unit has been clarified.
+
+`--phase-unit degrees` remains available for an explicit alternative interpretation of the same expression. Every successful run regenerates `ex3a_spectrum.png` with the current convention in its title, including when returning to the default radians run.
+
+With no options, the three scripts generate **eight figures** for 1A/1C, 2, 3A and 3B. A successful run does not mean the whole assignment is finished.
 
 ## Numerical choices permitted by the questions
 
@@ -40,4 +45,4 @@ These options only supply missing physical parameters; they do not select altern
 - Exercise 3B uses phase 0 radians and 400 samples. Neither is fixed in 3B. All specified frequencies occupy exact FFT bins with this count; the resolution is 50 Hz. The 128-sample requirement belongs to 3A.
 - FFT magnitude normalization follows preparation p. 22; the continuous-time approximation in Exercise 2 follows pp. 23/25 (`FFT * dt`). No window functions, filters or interpolation algorithms have been added.
 
-See [report.md](report.md) for the current explanation, [VERIFICATION.md](VERIFICATION.md) for scope/evidence and [../STATUS.md](../STATUS.md) for shared progress. The report is incomplete until 1B and 3A are resolved. No final ZIP has been made or uploaded.
+See [report.md](report.md) for the current explanation, [VERIFICATION.md](VERIFICATION.md) for scope/evidence and [../STATUS.md](../STATUS.md) for shared progress. The report is incomplete until 1B and the final group/author details are resolved. No final ZIP has been made or uploaded.

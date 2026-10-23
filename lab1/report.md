@@ -1,6 +1,6 @@
 # Lab 1 - Working report
 
-**Status:** verified sections below; Exercise 1B and the final Exercise 3A result are pending clarification. This is not the final submission. Group naming and authors remain open.
+**Status:** verified sections below; Exercise 1B remains pending its physical frequency scale. Exercise 3A’s requested magnitude plot is complete. This is not the final submission. Group naming and authors remain open.
 
 ## Exercise 1
 
@@ -58,13 +58,19 @@ Increasing the interval to `0 < t < 5 s` gives more samples and shows more repet
 
 ## Exercise 3
 
-### A. Sampling frequency and 128 samples - final plot pending phase unit
+### A. Sampling frequency and 128-sample magnitude spectrum
 
 The signal contains 20 Hz and 60 Hz terms. The question allows choosing `fs`; we use 256 Hz, which is greater than `2 * 60 = 120 Hz`. Other rates strictly above 120 Hz also avoid aliasing for these components; choosing equality would require special care with the highest-frequency phase.
 
 Exactly 128 samples are generated, at `n / 256` for `n = 0,...,127`. The FFT spacing is `256 / 128 = 2 Hz`. The centred, normalized magnitude spectrum has peaks of 6 at +/-20 Hz and 9 at +/-60 Hz (half the corresponding amplitudes in a two-sided spectrum).
 
-The printed `+30` has no explicit unit. Both interpretations have been tested, but the final waveform and plot are pending clarification. These phase choices change sample values while preserving these magnitudes at the selected bin-aligned frequencies.
+The printed `+30` has no explicit unit. For calculation we use the standard radians convention, explicitly shown in the plot; this does not claim that staff clarified the unit. The requested magnitude spectrum is unchanged if 30 degrees is used instead. The waveform samples would differ.
+
+Here the tones fall exactly on distinct FFT bins: `20 / 2 = 10` and `60 / 2 = 30`. In the normalized DFT, the cosine gives coefficients of magnitude `12/2 = 6`. The sine gives coefficients of magnitude `18/2 = 9`; its phase appears only as a factor of unit magnitude. Since the bins do not overlap, changing the sine phase does not change the resulting magnitudes. This argument relies on the chosen sampling frequency and record length; it is not a general claim for arbitrary finite records.
+
+The radians and degrees calculations were compared across all FFT bins: the largest magnitude difference was `3.762e-14`, below the absolute tolerance `1e-12`. The code always regenerates this figure, including after an earlier explicit phase choice.
+
+![Exercise 3A magnitude spectrum: 128 samples at 256 Hz](figures/ex3a_spectrum.png)
 
 ### B. Fixed sampling frequency of 20 kHz
 
@@ -93,4 +99,4 @@ For `f0 = fs - fa`, integer n gives `sin(2 pi f0 n/fs + phi) = sin(phi - 2 pi fa
 
 ## Remaining before submission
 
-Resolve the physical Hz scale in 1B and phase unit in 3A, generate their figures, complete the report with those results and agreed group/author details, then prepare and verify the required ZIP. No final package or eClass upload is claimed.
+Resolve the physical Hz scale in 1B, generate that figure, complete the report with that result and agreed group/author details, then prepare and verify the required ZIP. The unspecified 3A phase unit does not block its completed magnitude result. No final package or eClass upload is claimed.

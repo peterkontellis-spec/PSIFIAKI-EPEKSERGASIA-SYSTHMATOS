@@ -7,7 +7,7 @@ This repository is for DSP (HMMY458 / ΤΗΛ301) only. Keep ΨΥΣ work separate
 - Owners and group naming remain open; do not choose them on the user's behalf.
 - Follow the assignment and supplied preparation notes strictly. Keep the solution simple, precise and easy to explain. Do not introduce optional methods or features outside the requested questions.
 - Test and verify work before pushing. State the actual checks and numerical tolerances; do not claim absolute certainty from tests.
-- Do not silently settle ambiguous specification parameters. Keep the affected final outputs pending clarification while completing independent work.
+- Do not silently settle ambiguous specification parameters. Keep the affected final outputs pending clarification while completing independent work. On 23 October the user authorized completing 3A’s magnitude plot if phase does not affect it: this is verified at the chosen exact FFT bins, with the radians convention explicit. The 1B physical frequency scale remains pending.
 
 ## Before working
 

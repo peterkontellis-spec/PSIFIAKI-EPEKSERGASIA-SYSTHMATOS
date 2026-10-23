@@ -8,9 +8,9 @@
 
 **Working reference:** This is the maintained master guide for the DSP chat, as requested by the user on 16 October 2026. Use it as the main reference unless the user directs otherwise. Update verified course requirements from official HMMY458 sources and record actual work progress separately from assumptions. Keep DSP and ΨΥΣ course information separate.
 
-**Latest update — 22 October 2026:** Read the original assignment and the supplied 30-page preparation PDF. Added simple scripts, a working report and seven figures; 15 numerical checks and a clean-folder run passed. See [shared status](../STATUS.md) and [verification evidence](../lab1/VERIFICATION.md). Owners and group naming remain open by user instruction. The 1B sampling frequency and 3A phase unit remain unresolved; neither PDF clarifies them. No final ZIP or submission has been made. Live eClass dates were last checked on 16 October; the supplied assignment still gives 29 October at 23:30.
+**Latest update — 23 October 2026:** fixed stale generated figures and completed the required 3A magnitude plot using the explicit radians convention. At 128 samples and 256 Hz, radians/degrees give the same magnitudes within `1e-12`; the phase unit remains unconfirmed but does not block this result. All 18 numerical/rerun tests passed and all eight default figures reproduced byte-for-byte. See [shared status](../STATUS.md) and [verification evidence](../lab1/VERIFICATION.md). Owners and group naming remain open. The final 1B Hz plot still awaits its physical sampling rate. No final ZIP or submission has been made. Live eClass dates were last checked on 16 October; the supplied assignment gives 29 October at 23:30.
 
-**Independent review — 23 October 2026:** a Python expert reviewed implementation commit `1d70f60`. All 15 tests and seven clean-copy figure reproductions passed; no numerical defect was found. A stale-output issue was reproduced when default runs follow explicit-parameter runs. Final figures and ZIP remain unfinished. See the scorecard and findings in [STATUS.md](../STATUS.md). No solution code was changed during this review.
+**Independent review — 23 October 2026:** a Python expert reviewed implementation commit `1d70f60`. All 15 tests and seven clean-copy figure reproductions passed; no numerical defect was found. A stale-output issue was reproduced when default runs follow explicit-parameter runs. Final figures and ZIP remain unfinished. See the scorecard and findings in [STATUS.md](../STATUS.md). No solution code was changed during this review. The subsequent fix and completed 3A plot are recorded above; the original scorecard remains tied to the reviewed commit.
 
 ## 1. Immediate priorities and deadlines
 
@@ -132,15 +132,17 @@ The PDF writes:
 x(t) = 12 cos(2π·20t) - 18 sin(2π·60t + 30)
 ```
 
-- [ ] Choose a sampling frequency that avoids aliasing.
-- [ ] Generate **128 samples**.
-- [ ] Plot the spectrum with the horizontal axis in **Hz**.
-- [ ] Explain the sampling-rate selection criterion.
-- [ ] Discuss a wider range of acceptable sampling frequencies.
+- [x] Choose a sampling frequency that avoids aliasing.
+- [x] Generate **128 samples**.
+- [x] Plot the spectrum with the horizontal axis in **Hz**.
+- [x] Explain the sampling-rate selection criterion.
+- [x] Discuss a wider range of acceptable sampling frequencies.
 
 **Derived guidance:** the highest sinusoidal frequency is **60 Hz**. Choosing **`fs > 120 Hz`** avoids relying on an exact Nyquist-boundary case. A convenient example is **256 Hz**, giving a 2 Hz FFT-bin spacing for 128 samples; this is a suggested choice, not an assigned value.
 
 **Phase ambiguity:** the printed expression is `+30`, with no degree symbol or explicit unit. Standard mathematical/Python trigonometric convention would interpret this as radians, but **30 degrees has not been verified as the intended meaning**. State your interpretation or ask staff; do not silently convert it.
+
+**Completed — 23 October:** the [3A plot](../lab1/figures/ex3a_spectrum.png) uses 256 Hz and 128 samples with `+30` explicitly treated as radians. The 20/60 Hz tones occupy distinct FFT bins 10/30, so their normalized magnitudes are 6/9 regardless of the sine phase. Comparing radians and degrees across all bins gave a maximum difference of `3.762e-14` (tolerance `1e-12`). The waveform samples differ; this invariance claim is specific to the chosen record and frequencies. See the [report](../lab1/report.md).
 
 #### B. Fixed sampling rate of 20 kHz
 
@@ -248,7 +250,7 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 
 - [ ] Exercise 1: both sequences, formula-based convolution, library verification, correct indices/length, spectra and convolution theorem.
 - [ ] Exercise 2: specified signal, initial 0.5-second interval, spectrum/Nyquist reasoning, all three sampling periods and 5-second comparison.
-- [ ] Exercise 3A: 128 samples, justified alias-free sampling rate, Hz spectrum, phase interpretation recorded.
+- [x] Exercise 3A: 128 samples, justified alias-free sampling rate, Hz spectrum, phase interpretation recorded; verified 23 October.
 - [ ] Exercise 3B: discrete-time formula, all eight specified frequencies, spectra and alias explanations.
 - [ ] Assumptions about sample intervals, phase, reconstruction and record lengths are explicit.
 - [ ] Every graph has a title, labelled axes and useful limits.
@@ -272,7 +274,7 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 | Exercise 1 frequency units | Hz is requested; no physical sample interval is supplied. Declare an assumption or obtain clarification. |
 | Exercise 1B spectra | The wording refers to the preceding signals without an explicit list; show both inputs together and consider including the convolution spectrum clearly labelled. |
 | Exercise 2 reconstruction | Uses original/samples plots from the preparation and written theory; no additional reconstruction algorithm. |
-| Exercise 3A phase | `+30` is printed without units; do not silently assert degrees. |
+| Exercise 3A phase | `+30` is printed without units. Radians are explicitly used; the requested magnitude is complete because the two interpretations agree within tolerance at the chosen bins. Instructor intent remains unconfirmed. |
 | Exercise 3B phase and record length | Neither a numerical phase nor a sample count is prescribed for this subpart. |
 | Report/ZIP naming | ZIP is compulsory; report extension and filename conventions are not established. |
 | Late submission policy | The deadline is verified; a specific late penalty or extension rule was not verified. |
@@ -288,7 +290,7 @@ The supplied guide was originally reconstructed from official course sources whe
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
 | Assignment availability | **Only Lab 1 currently listed** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **In progress, 22 October** | Three scripts, seven figures, 15 passing checks and a working report. Final 1B/3A choices remain pending; see [STATUS.md](../STATUS.md). |
+| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude complete. Final 1B plot and package remain pending; see [STATUS.md](../STATUS.md). |
 | Lab 1 submission | **No submission shown for the signed-in account** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
@@ -306,6 +308,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — fixes:** resolved stale generated figures and completed the 3A magnitude plot and explanation. Verified phase independence within `1e-12`, 18 passing tests and eight byte-for-byte figure reproductions. 1B and the final package remain pending.
 
 - **23 October 2026:** Recorded the independent expert review in shared status: numerical checks passed; stale-output behavior needs attention; final figures and ZIP remain pending.
 

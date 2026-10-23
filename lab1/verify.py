@@ -4,6 +4,12 @@ Run: python lab1/verify.py
 """
 
 import unittest
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
 from fractions import Fraction
 
 import numpy as np
@@ -110,6 +116,15 @@ class Exercise2Checks(unittest.TestCase):
 
 
 class Exercise3Checks(unittest.TestCase):
+    def test_3a_magnitude_independent_of_phase_interpretation(self):
+        _, radians, fs = ex3.signal_a("radians")
+        _, degrees, _ = ex3.signal_a("degrees")
+        self.assertFalse(np.allclose(radians, degrees))  # Samples do change.
+        f_rad, mag_rad = ex3.spectrum(radians, fs)
+        f_deg, mag_deg = ex3.spectrum(degrees, fs)
+        np.testing.assert_array_equal(f_rad, f_deg)
+        np.testing.assert_allclose(mag_rad, mag_deg, rtol=0, atol=1e-12)
+
     def test_phase_choice_required(self):
         for unit in (None, "", "unknown"):
             with self.assertRaises(ValueError):
@@ -150,6 +165,50 @@ class Exercise3Checks(unittest.TestCase):
         _, x, fs = ex3.signal_b(1500)
         _, mag = ex3.spectrum(x, fs)
         self.assertAlmostEqual(np.sum(mag ** 2), np.mean(x ** 2), places=12)
+
+
+class FigureRerunChecks(unittest.TestCase):
+    def setUp(self):
+        self.folder = tempfile.TemporaryDirectory()
+        self.addCleanup(self.folder.cleanup)
+        self.root = Path(self.folder.name)
+        for name in ("exercise1.py", "exercise3.py"):
+            shutil.copy2(Path(__file__).parent / name, self.root / name)
+
+    def run_script(self, name, *args):
+        result = subprocess.run(
+            [sys.executable, str(self.root / name), *args], cwd=self.root,
+            env=dict(os.environ, MPLBACKEND="Agg"), capture_output=True, text=True,
+            timeout=60,
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        return result.stdout
+
+    def test_pending_1b_removes_only_its_old_figure(self):
+        self.run_script("exercise1.py", "--fs", "1")
+        figure = self.root / "figures/ex1_spectra.png"
+        self.assertTrue(figure.is_file())
+        unrelated = self.root / "figures/teammate-notes.txt"
+        unrelated.write_text("Keep this file.")
+        output = self.run_script("exercise1.py")
+        self.assertIn("Exercise 1B pending", output)
+        self.assertFalse(figure.exists())
+        self.assertEqual(unrelated.read_text(), "Keep this file.")
+        self.assertTrue((self.root / "figures/ex1_convolution.png").is_file())
+        self.run_script("exercise1.py")  # Also succeeds with no old figure.
+        self.assertFalse(figure.exists())
+
+    def test_default_3a_replaces_previous_phase_output(self):
+        output = self.run_script("exercise3.py")
+        self.assertIn("phase = 30 radians", output)
+        figure = self.root / "figures/ex3a_spectrum.png"
+        default_png = figure.read_bytes()
+        self.run_script("exercise3.py", "--phase-unit", "degrees")
+        # Same magnitudes to numerical precision; the labelled convention differs.
+        self.assertNotEqual(figure.read_bytes(), default_png)
+        output = self.run_script("exercise3.py")
+        self.assertNotIn("pending", output)
+        self.assertEqual(figure.read_bytes(), default_png)
 
 
 if __name__ == "__main__":

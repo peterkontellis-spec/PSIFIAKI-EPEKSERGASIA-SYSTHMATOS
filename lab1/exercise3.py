@@ -37,21 +37,25 @@ def spectrum(x, fs):
     return f, magnitude
 
 
-def main(phase_unit=None):
+def main(phase_unit="radians"):
     out = Path(__file__).parent / "figures"
     out.mkdir(exist_ok=True)
-    if phase_unit is None:
-        print("Exercise 3A pending: clarify +30 and supply --phase-unit radians or degrees.")
-    else:
-        t, x, fs = signal_a(phase_unit)
-        f, magnitude = spectrum(x, fs)
-        fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
-        ax.plot(f, magnitude)
-        ax.set(title=f"Exercise 3A: 128 samples, fs = 256 Hz, phase = 30 {phase_unit}",
-               xlabel="Frequency (Hz)", ylabel="Magnitude |FFT| / N", xlim=(-128, 128))
-        ax.grid(alpha=0.3)
-        fig.savefig(out / "ex3a_spectrum.png", dpi=150)
-        plt.close(fig)
+    # Both tones occupy distinct FFT bins (10 and 30). Their magnitudes are
+    # phase-independent here. Use the standard radians convention explicitly;
+    # this is not a claim that staff clarified the printed +30.
+    t, x, fs = signal_a(phase_unit)
+    f, magnitude = spectrum(x, fs)
+    fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
+    ax.plot(f, magnitude)
+    ax.set(title=f"Exercise 3A: 128 samples, fs = 256 Hz\n"
+                 f"Phase = 30 {phase_unit}; tones on exact FFT bins",
+           xlabel="Frequency (Hz)", ylabel="Magnitude |FFT| / N", xlim=(-128, 128))
+    ax.grid(alpha=0.3)
+    # Always regenerate, including after a previous --phase-unit choice.
+    fig.savefig(out / "ex3a_spectrum.png", dpi=150)
+    plt.close(fig)
+    print(f"Exercise 3A: phase = 30 {phase_unit}; the requested magnitude spectrum "
+          "is unchanged between radians and degrees at these bin-aligned frequencies.")
 
     for frequencies, suffix in (((500, 1000, 1500, 2000), "low"),
                                 ((18000, 18500, 19000, 19500), "high")):
@@ -71,6 +75,7 @@ def main(phase_unit=None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--phase-unit", choices=("radians", "degrees"),
-                        help="Explicit unit for Exercise 3A's printed +30")
+    parser.add_argument("--phase-unit", choices=("radians", "degrees"), default="radians",
+                        help="Calculation convention for 3A's +30 (default: radians); "
+                             "magnitude is unchanged between the two choices here")
     main(parser.parse_args().phase_unit)

@@ -46,6 +46,9 @@ def main(fs=None):
 
     out = Path(__file__).parent / "figures"
     out.mkdir(exist_ok=True)
+    if fs is None:
+        # This script owns this generated file. Do not retain an earlier Hz choice.
+        (out / "ex1_spectra.png").unlink(missing_ok=True)
     fig, axes = plt.subplots(3, 1, figsize=(9, 8), layout="constrained")
     for ax, n, values, title in zip(axes, (nx, ny, nz), (x, y, z),
                                    ("x[n]", "y[n]", "z[n] = x[n] * y[n]")):
@@ -77,7 +80,8 @@ def main(fs=None):
     print(f"Maximum FFT-product difference: {np.max(np.abs(Z - X * Y)):.3e}")
 
     if fs is None:
-        print("Exercise 1B pending: supply --fs only after choosing/clarifying the Hz scale.")
+        print("Exercise 1B pending: supply --fs only after choosing/clarifying the Hz scale. "
+              "Any earlier ex1_spectra.png has been removed.")
         return
     f, magnitudes = spectra(x, y, z, fs)
     fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
