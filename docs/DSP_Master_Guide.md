@@ -20,7 +20,9 @@
 
 **Greek report — 23 October 2026:** added a simpler Greek [source](../lab1/report_el.md), [PDF](../lab1/report_el.pdf) and [HTML preview](../lab1/report_el.html), including Greek labels and captions for all eight figures. The ten display equations and all plotted data/axis ranges match the English version exactly. All 11 PDF pages were rendered and checked. English artifacts and solution scripts are unchanged; the earlier expert score applies to the English report. 1B and team details remain open. No eClass access or submission action.
 
-**Greek report review and polish — 23 October 2026:** at `1f67156`, the Python expert and aesthetics agent each rated the Greek report 8.8/10; the expert independently passed all 18 tests. Applied clearer wording, larger text in four multi-panel plots and a 3B continuation heading. Verified unchanged equations, plotted data and axis ranges, with all 11 PDF pages visually checked. These edits have not received a new score. The [Greek PDF](../lab1/report_el.pdf) and [HTML](../lab1/report_el.html) are refreshed; [shared status](../STATUS.md) records the evidence. 1B and team details remain open, and eClass was not accessed.
+**Greek report review and polish — 23 October 2026:** at `1f67156`, the Python expert and aesthetics agent each rated the Greek report 8.8/10; the expert independently passed all 18 tests. Applied clearer wording, larger text in four multi-panel plots and a 3B continuation heading. Verified unchanged equations, plotted data and axis ranges, with all 11 PDF pages visually checked. The [Greek PDF](../lab1/report_el.pdf) and [HTML](../lab1/report_el.html) are refreshed; [shared status](../STATUS.md) records the evidence. 1B and team details remain open, and eClass was not accessed.
+
+**Post-polish re-review — 23 October 2026:** both agents reviewed `914f4c7` and rated it **9.0/10** on their respective five fronts. All previous wording/presentation suggestions are resolved; no additional required report correction was found beyond 1B and team identification. Equations, code identity, embedded assets and current PDF layout were checked; the numerical suite was not rerun because code/tests/dependencies are unchanged from the independent 18-test pass. Final run instructions, final report refresh and a ZIP verified from fresh extraction remain outstanding. No report/code changes or eClass actions during the review. See [STATUS.md](../STATUS.md) for scorecards and limits.
 
 ## 1. Immediate priorities and deadlines
 
@@ -318,6 +320,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — post-polish re-review:** both agents rated `914f4c7` at 9.0/10 and found no further required report fix beyond 1B/team details. Confirmed wording/layout improvements and unchanged mathematics/code; recorded the remaining instructions and verified-ZIP work. Documentation-only update; eClass untouched.
 
 - **23 October 2026 — Greek review and polish:** recorded both 8.8/10 Greek report reviews and the expert's independent 18-test pass. Applied wording and figure-readability fixes, with equations/data preserved and PDF/HTML checked. 1B, team details and final ZIP remain open; no new numerical methods or eClass actions.
 

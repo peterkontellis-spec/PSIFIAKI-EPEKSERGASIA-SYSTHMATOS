@@ -20,7 +20,8 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 - **Report theory completed, 23 October:** added the assignment’s DFT/inverse and ideal reconstruction formulas, with the preparation notes’ FFT frequency mapping. All 18 existing tests passed again; direct checks of the written transform formulas and bin mapping passed at `1e-10`. A local report preview contains all eight figures.
 - **Report presentation reviewed, 23 October:** reorganized the report with a results table, typeset equations, numbered figure captions and sources. Added [HTML](lab1/report.html) and [PDF](lab1/report.pdf) reading copies. Independent report-only estimate improved from **8.3/10 to 8.8/10**; this is not an official-grade prediction.
 - **Greek report added, 23 October:** [PDF](lab1/report_el.pdf), [HTML](lab1/report_el.html) and [Markdown](lab1/report_el.md), with shorter explanations and eight figures labelled in Greek. All ten display equations match the English source exactly; all plotted arrays and axis ranges match the original scripts exactly. The English version and solution code are unchanged.
-- **Greek review and polish, 23 October:** the Python expert and aesthetics agent each rated the Greek report at `1f67156` **8.8/10**. The expert independently passed all 18 tests. Applied their wording and visual suggestions: clearer convolution/time-origin statements, concise phase convention, larger text in four multi-panel figures and a 3B continuation heading. Verified all ten equations, eight sets of plotted data and the updated 11-page PDF; these changes have not received a new score. 1B and team details remain open.
+- **Greek review and polish, 23 October:** the Python expert and aesthetics agent each rated the Greek report at `1f67156` **8.8/10**. The expert independently passed all 18 tests. Applied their wording and visual suggestions: clearer convolution/time-origin statements, concise phase convention, larger text in four multi-panel figures and a 3B continuation heading. Verified all ten equations, eight sets of plotted data and the updated 11-page PDF. 1B and team details remain open.
+- **Post-polish re-review, 23 October:** both agents reviewed `914f4c7` and raised their means to **9.0/10**. All previous wording/presentation findings are resolved; neither found another required report correction beyond 1B and team identification. Final run instructions, refreshed final copies and a ZIP verified from fresh extraction remain outstanding. Report, code and figures were unchanged during this review.
 - Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
@@ -84,6 +85,25 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 3 phase and 3B record length | 3A uses an explicit radians convention; the printed unit remains unconfirmed, but the requested magnitude is invariant at the chosen bins. 3B uses documented phase 0 and 400 samples | 3A magnitude complete; no claim of staff clarification |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
 
+## Greek report re-review after polish — 23 October 2026
+
+Reviewed `914f4c7765949bd28f0a0034f84d1bcdf725077c`. Both agents found **no additional required report correction beyond 1B and group/author details**. Scores are independent review estimates, not predicted instructor grades.
+
+| Python expert: report front | Previous → current /10 | Aesthetics agent: front | Previous → current /10 |
+|---|---|---|---|
+| Mathematical correctness | 9 → 9 | Greek readability and naturalness | 8.5 → 9 |
+| Specification coverage | 8 → 8 | Organization and navigation | 9 → 9 |
+| Explanation and reasoning | 9 → 9.5 | Typography and layout | 9 → 9 |
+| Organization | 9 → 9 | Figure and caption legibility | 8.5 → 9 |
+| Presentation | 9 → 9.5 | Visual consistency and presentation | 9 → 9 |
+| **Mean** | **8.8 → 9.0** | **Mean** | **8.8 → 9.0** |
+
+The three wording fixes, larger plot text, unobstructed sampling legends and page-10 continuation heading are resolved. The mathematics and specification qualifications remain intact; coverage stays at 8 because 1B is incomplete. No further redesign, reconstruction method, theory section or 3A phase clarification is needed for the completed work.
+
+**Evidence:** the expert independently compared all ten equations with the earlier Greek and English versions, checked the supplied assignment/preparation material, and verified that solution scripts, tests and dependencies are byte-identical to `1f67156`. The previous independent 18-test pass therefore remains the latest numerical-suite result; it was not rerun for this report-only review. Both agents checked current PDF/HTML content and structure. All 11 PDF pages were inspected through current renders, with detailed checks of seven pages by the aesthetics agent. Eight embedded Greek PNGs match their source files; the PDF has 18 images and all eight captions; the HTML has seven resolving contents links and no scripts. HTML was source-reviewed, not browser-tested.
+
+**Remaining delivery work after the open decisions:** put the actual agreed 1B rate and full repository-root command in the run instructions (current README lines 25 and 41); add the completed 1B result; refresh both report versions and figure numbering; remove obsolete draft/pending notices only after resolution; assemble the required ZIP with separate commented code, report and execution instructions; run it from a fresh extraction and check all nine expected result figures. No ZIP currently exists. Submission remains separate and was not accessed or changed.
+
 ## Greek report review and polish — 23 October 2026
 
 Both independent reviews assessed `1f67156`, before the polish below. Scores are review estimates, not predicted instructor grades.
@@ -101,7 +121,7 @@ The Python expert found no new mathematical defect and independently passed all 
 
 **Applied polish:** clarified that the FFT of the convolution equals the input FFT product; simplified the time-origin sentence while retaining the same-record qualification; shortened the explicit 30 rad convention without claiming instructor clarification. Added “3Β. Υψηλές συχνότητες” before Figure 8. Enlarged titles, axis labels, ticks and legends in Figures 4–5 and 7–8; sampling legends now sit above the axes so they do not obscure the curves. Kept the report at 11 pages with a compact summary table. No additional solution method was introduced.
 
-**Verification:** exact comparisons preserve all ten display equations, all eight figures' plotted coordinates and axis ranges, and all solution scripts. The four unaffected Greek PNGs and all English artifacts are unchanged. Checked the PDF's 11 rendered pages, eight captions, ten equations and the HTML's seven contents links and embedded PNG bytes. No numerical test-suite rerun for this presentation-only change; the latest 18-test pass is the independent Greek review above. These edits have not been regraded.
+**Verification:** exact comparisons preserve all ten display equations, all eight figures' plotted coordinates and axis ranges, and all solution scripts. The four unaffected Greek PNGs and all English artifacts are unchanged. Checked the PDF's 11 rendered pages, eight captions, ten equations and the HTML's seven contents links and embedded PNG bytes. No numerical test-suite rerun for this presentation-only change; the latest 18-test pass is the independent review of `1f67156`. The subsequent re-review is recorded above.
 
 **Still required:** agree 1B's physical rate; add its final Hz plot and interpretation; put the actual rate and full repository-relative command in the final run instructions; agree author/group details and submission owner; refresh both language versions and figure numbering; then build and verify the ZIP from a fresh extraction, including all nine expected result figures. Keep draft/pending notices until those items are resolved. No eClass access or submission action was performed.
 
@@ -179,6 +199,12 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Post-polish Greek report re-review
+
+- Both agents reviewed `914f4c7`; Python and aesthetics means each improved from 8.8 to 9.0/10. No additional required report fixes found beyond 1B and team identification.
+- Verified equations, unchanged solution code/tests/dependencies, embedded assets, PDF layout and HTML structure. The earlier 18-test pass remains the latest numerical run; no unnecessary rerun or report/code changes.
+- Recorded remaining final execution instructions, report refresh and fresh-extraction ZIP verification. Checked documentation links/whitespace and synchronized the master guide. No eClass actions.
 
 ### 23 October 2026 — Greek wording and figure readability
 

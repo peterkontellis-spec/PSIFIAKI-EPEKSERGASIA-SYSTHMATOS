@@ -76,6 +76,14 @@ Tests establish agreement for these inputs and the stated tolerances. They do no
 - Solution scripts, verification code and English report files are byte-for-byte unchanged. The 1B text and pending notices remain unchanged, and no 1B figure was generated. No new algorithm or parameter choice was introduced. The 18-test suite was not rerun for these presentation-only edits; its latest pass is the independent Greek review recorded above.
 - HTML assets and structure were checked; local-file browser automation remains unavailable. No final ZIP, live deadline recheck or eClass access/submission action.
 
+## Post-polish independent re-review — 23 October 2026
+
+- Both agents reviewed `914f4c7`. The Python expert rated the same report fronts 9/8/9.5/9/9.5; the aesthetics agent rated its five fronts 9/9/9/9/9. Both means are 9.0/10. No additional required report correction was found beyond the deliberately pending 1B and team details; all earlier wording/visual suggestions are resolved.
+- The expert rechecked the assignment pp. 1–4 and relevant preparation material pp. 4 and 18–25. All ten equations match the previous Greek and English sources exactly. The three solution scripts, verification script and dependencies are byte-identical to `1f67156`, so the numerical suite was not rerun. The prior independent 18-test pass is the latest numerical result.
+- Current Greek HTML checks passed: eight figures/captions, 18 embedded images with alt text, eight PNG byte comparisons, seven valid contents anchors, unique IDs and no scripts. Current PDF checks passed: 11 pages, 18 images, eight captions, the page-10 heading and intact pending notices; output and repository copies are identical.
+- Both agents inspected current PDF contact sheets and selected full-size pages; the aesthetics agent closely read seven pages. No clipping, overlap or missing Greek glyphs was found. HTML was source-reviewed, not browser-tested.
+- Final instructions using the agreed 1B rate, final report refresh and a ZIP tested after fresh extraction remain delivery tasks. No ZIP exists yet. No report, code or figure edits, no new numerical methods and no eClass access/submission action were part of this review.
+
 ## Reproduce
 
 From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:
