@@ -44,6 +44,13 @@ These identify the supplied copies, not a claim that no newer course announcemen
 
 Tests establish agreement for these inputs and the stated tolerances. They do not prove universal correctness, settle unstated instructor intent or establish that an incomplete assignment is ready to submit.
 
+## Report theory update — 23 October 2026
+
+- Rechecked assignment pp. 1-2 visually and preparation pp. 18/22. The report now states the DFT/inverse pair, FFT frequency-bin mapping and specified impulse-train/ideal-low-pass reconstruction model. The reconstruction sum follows directly by convolving the supplied impulse train with the supplied sinc response.
+- Re-ran the existing 18 tests: all passed. Independently evaluated the report’s DFT/inverse sums on the 128-sample 3A signal and checked the centred-bin rule for N=16, 128, 400 and 499 against NumPy, with absolute tolerance `1e-10` and relative tolerance zero. Test-only frequency scales did not set a final 1B value or generate its final figure.
+- Only documentation changed; existing solution scripts and eight committed figures remain unchanged. Checked Markdown links and figure references. The local preview embeds all eight figures and retains the pending 1B/group notices.
+- No extra reconstruction algorithm, final ZIP, deadline recheck or eClass submission action was performed.
+
 ## Reproduce
 
 From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:

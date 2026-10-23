@@ -16,7 +16,8 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 - Initial inspection of `main` at `d2346ae` found only [README.txt](README.txt). No exercise code, figures, report or submission ZIP was committed at that point. Teammates' uncommitted/offline work is unknown.
 - **22 October:** added simple Lab 1 scripts, 15 passing numerical checks, seven reproducible figures and a working report. See [verification](lab1/VERIFICATION.md) and [run instructions](lab1/README.md).
 - **23 October:** fixed stale generated figures and completed the required 3A magnitude plot. All 18 tests pass; all eight default figures reproduce byte-for-byte. The radians convention is explicit, and phase-unit independence of this magnitude result is verified.
-- **Re-review of `1c7c2df`:** independent checks confirm both fixes. Scores are 9 / 9 / 9 / 9 / 7.5 across the five fronts below. Final 1B instructions, a short report theory completion and the verified ZIP remain outstanding.
+- **Re-review of `1c7c2df`:** independent checks confirm both fixes. Scores are 9 / 9 / 9 / 9 / 7.5 across the five fronts below. At that review, final 1B instructions, report theory completion and the verified ZIP remained outstanding; the theory completion is recorded below.
+- **Report theory completed, 23 October:** added the assignment’s DFT/inverse and ideal reconstruction formulas, with the preparation notes’ FFT frequency mapping. All 18 existing tests passed again; direct checks of the written transform formulas and bin mapping passed at `1e-10`. A local report preview contains all eight figures.
 - Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
@@ -47,7 +48,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 2: sampling and reconstruction | Ready for review | Unassigned | [Code](lab1/exercise2.py), three figures and [report explanation](lab1/report.md); no extra numerical reconstruction method added |
 | Exercise 3A: alias-free sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), [magnitude plot](lab1/figures/ex3a_spectrum.png) and report complete; 128 samples at 256 Hz; explicit radians convention and phase independence verified |
 | Exercise 3B: aliases at 20 kHz sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), eight spectra in two figures, alias/sign explanation; explicit permitted choices N=400 and phase=0 |
-| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), eight reviewed figures; final 1B figure and agreed group/author details remain open |
+| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), completed theory additions and eight reviewed figures; final 1B figure and agreed group/author details remain open |
 | Reproducibility and review | Ready for review | Unassigned | [18 numerical and rerun tests](lab1/verify.py) pass; clean-folder execution reproduces all eight default figures; [evidence and limits](lab1/VERIFICATION.md) |
 | ZIP and eClass submission | Not started | Unassigned | One ZIP with separate commented code, report and execution instructions; verify upload and retain confirmation |
 
@@ -55,7 +56,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 
 1. Review the verified scripts and working report; owners and group naming stay open.
 2. Clarify the physical sampling rate for 1B; generate and review its final plot.
-3. Complete the report with that result, the short theory additions identified in re-review, and agreed group/author details. Put the agreed `--fs` value in the main run instructions.
+3. Complete the report with the 1B result and agreed group/author details; the theory additions are complete. Put the agreed `--fs` value in the main run instructions.
 4. Repeat only affected checks after any changes, then perform a final review against every subquestion.
 5. Build the ZIP, run its code from a fresh extraction, and verify the group upload before 29 October at 23:30. Select a submission owner explicitly.
 
@@ -94,7 +95,7 @@ Reviewed commit `1c7c2df6e5c7e55492aa53e801f7f663824813f9` against the supplied 
 
 **Independent evidence:** all 18 tests passed in a clean copy; all three default scripts ran and all eight PNGs matched committed files byte-for-byte. An explicit `--fs 20` run followed by the default removed only the previous 1B figure and preserved an unrelated file. Degrees followed by default Exercise 3 restored the committed radians-labelled figure. The new 3A plot was visually checked. Its all-bin radians/degrees difference was `3.7623497442574107e-14`, below `1e-12`; peaks are 6 at ±20 Hz and 9 at ±60 Hz. No fresh dependency installation, other-OS run or live eClass recheck was performed.
 
-### Remaining findings and submission checklist
+### Findings and submission checklist at the reviewed commit
 
 1. **Resolve 1B’s physical sampling rate** under the user’s constraints. [Report](lab1/report.md), line 19 of the reviewed commit, records the missing required Hz plot. Generate and visually inspect it, insert it, and explain the chosen scale and observations.
 2. **Finalize the run instructions with the agreed value.** [README](lab1/README.md), line 15, currently runs Exercise 1 without `--fs`, deliberately removing its spectrum. The final main command must be `python lab1/exercise1.py --fs <agreed-value>` with an actual value. Replace the abbreviated command at line 31 with the full path consistent with the repository-root working directory.
@@ -103,6 +104,8 @@ Reviewed commit `1c7c2df6e5c7e55492aa53e801f7f663824813f9` against the supplied 
 5. **Assemble the required single ZIP:** separate commented Python code, completed report with accessible figures, and short execution instructions. Include the dependencies needed to follow those instructions.
 6. **Verify the actual package:** extract into a fresh folder, follow the final documented commands, run the checks, and confirm all nine expected figures and report references. Current clean-copy testing does not replace this final ZIP check.
 7. **Submit through eClass and retain confirmation.** Repository completion is separate from upload. The recorded deadline remains 29 October 2026 at 23:30 Europe/Athens, last live-checked on 16 October; this review did not recheck announcements.
+
+**Follow-up — 23 October:** item 3’s theory additions are now complete in [report.md](lab1/report.md): assignment p. 1, equations 1-2; assignment p. 2 reconstruction model; preparation pp. 18/22 FFT spacing and axis conventions. Working/pending wording remains accurate because 1B and team identification are deliberately open. No extra reconstruction algorithm was implemented. No eClass submission pages were accessed or changed.
 
 **Not blockers:** further 3A phase clarification, an additional reconstruction algorithm, a mandatory PDF extension, extra workspace tooling, or broader refactoring. PDF is an optional report format; the specification requires a detailed report, not that particular extension.
 
@@ -133,6 +136,14 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Report theory and preview
+
+- Added the DFT/inverse pair, normalization and centred frequency-bin explanation, plus the impulse train, specified low-pass filter and resulting ideal reconstruction sum. All come from the supplied assignment/preparation notes; no solution code or methods changed.
+- Kept 1B’s physical sampling rate, its final plot, group details and owners open. eClass submissions were not accessed or changed.
+- Re-ran all 18 existing tests successfully. Independently checked the written DFT/inverse sums and even/odd centred-bin mapping against NumPy within `1e-10`; reviewed the reconstruction expressions against the rendered specification pages.
+- Created a local reading preview from the report with all eight figures embedded. Checked Markdown links, figure references and Git whitespace before commit. The preview is not a submission package.
+- Next: settle 1B, finish its plot/explanation and final run command, then complete team details and verify the required ZIP. Upload is outside this change’s scope.
 
 ### 23 October 2026 — Independent re-review of the fixes
 

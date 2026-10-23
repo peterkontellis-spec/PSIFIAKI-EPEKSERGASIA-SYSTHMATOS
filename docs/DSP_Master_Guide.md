@@ -14,6 +14,8 @@
 
 **Independent re-review — 23 October 2026:** the expert reviewed `1c7c2df`, independently passed all 18 tests and reproduced all eight figures exactly. Stale outputs are fixed and 3A is complete. Scores for compliance, mathematics, clarity, testing and readiness are **9 / 9 / 9 / 9 / 7.5**. Remaining: 1B’s physical scale and plot; final instructions containing the agreed `--fs` value; a short report theory completion using the existing assignment formulas; team identification; and the actual extracted-ZIP check and upload. See the detailed checklist in [STATUS.md](../STATUS.md). The theory additions are a reviewer interpretation of the report requirements, not extra numerical methods. No live deadline recheck was performed.
 
+**Report theory completed — 23 October 2026:** added the DFT/inverse pair from assignment p. 1, the ideal low-pass reconstruction model from p. 2, and FFT bin spacing/axis conventions from preparation pp. 18/22. All 18 tests passed again; direct checks of the written transform formulas and bin mapping passed within `1e-10`. A local report preview includes the eight existing figures. 1B’s sampling rate and group details remain open by instruction. No solution code changed and no eClass submissions were accessed or changed.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -292,7 +294,7 @@ The supplied guide was originally reconstructed from official course sources whe
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
 | Assignment availability | **Only Lab 1 currently listed** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude complete. Final 1B plot and package remain pending; see [STATUS.md](../STATUS.md). |
+| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude and report theory additions complete. Final 1B plot and package remain pending; see [STATUS.md](../STATUS.md). |
 | Lab 1 submission | **No submission shown for the signed-in account** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
@@ -310,6 +312,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — report theory:** completed the requested formulas strictly from the supplied sources and created a local preview. All 18 tests and direct formula/bin checks passed; 1B and group decisions remain open. eClass submissions untouched.
 
 - **23 October 2026 — re-review:** recorded the updated expert scores and exact remaining submission checklist. Independent checks confirm 18 tests, eight exact figure reproductions and both resolved findings; no solution code changed.
 

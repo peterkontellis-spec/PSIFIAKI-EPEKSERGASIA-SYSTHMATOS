@@ -2,6 +2,19 @@
 
 **Status:** verified sections below; Exercise 1B remains pending its physical frequency scale. Exercise 3A’s requested magnitude plot is complete. This is not the final submission. Group naming and authors remain open.
 
+## Fourier-transform conventions
+
+For N stored samples, the assignment (p. 1, equations 1-2) defines the DFT and its inverse as:
+
+```text
+X[k] = sum_(n=0)^(N-1) x[n] exp(-j 2 pi n k / N),  k = 0,...,N-1
+x[n] = (1/N) sum_(k=0)^(N-1) X[k] exp(+j 2 pi n k / N),  n = 0,...,N-1
+```
+
+Here j is the imaginary unit. The FFT computes the first sum efficiently; the inverse FFT computes the second. The forward transform is unscaled, while the inverse includes `1/N`. For the discrete-sequence magnitude plots we display `|X[k]|/N`, following preparation p. 22. The convolution-theorem calculation uses the unscaled transforms. Exercise 2 uses the separately stated `dt` scaling for its continuous-time approximation.
+
+With sampling period `Ts = 1/fs`, adjacent FFT bins are separated by `delta_f = fs/N` (preparation p. 18). On the centred frequency axis, bin q represents `f_q = q fs/N`, with `q = -floor(N/2),...,ceil(N/2)-1`. This is the ordering obtained by applying `fftshift` to both the FFT and the `fftfreq(N, d=Ts)` axis described on preparation p. 22. It does not supply the missing physical sampling rate for Exercise 1B.
+
 ## Exercise 1
 
 ### A. Sequences and convolution
@@ -45,6 +58,23 @@ We use a 1 ms numerical grid strictly inside `0 < t < 0.5 s` to draw the continu
 ### C. Three sampling periods
 
 Samples are at `t = n / fs`, with integer n and endpoints excluded as in the question. The plots follow preparation pp. 19-21: original curve and sampled points on the same axes. They are not plots of numerical interpolation.
+
+The assignment's reconstruction model (p. 2) first forms an impulse train from the samples, then applies an ideal low-pass filter:
+
+```text
+x_s(t) = sum_(n=-infinity)^infinity x[n] delta(t - n Ts)
+H_r(j Omega) = Ts,  for |Omega| <= pi/Ts
+             = 0,   for |Omega| > pi/Ts
+h_r(t) = sinc(t/Ts),  where sinc(u) = sin(pi u)/(pi u), sinc(0) = 1
+```
+
+Here `delta` is the Dirac impulse and `Omega` is angular frequency in radians/s. Convolving the impulse train with this filter gives the reconstruction relationship directly:
+
+```text
+x_r(t) = sum_(n=-infinity)^infinity x[n] sinc((t - n Ts)/Ts)
+```
+
+For a bandlimited signal whose sampled spectral copies do not overlap, ideal filtering recovers the original signal from the complete sample sequence. The brief gives the Nyquist criterion `fs >= 2 fmax`; choosing `fs > 2 fmax` avoids the boundary case discussed below. The infinite sum explains the ideal result and the limitation of a finite record. It is used here as theory, not as an additional numerical reconstruction routine.
 
 ![Sampling over half a second](figures/ex2_sampling_0p5s.png)
 
