@@ -18,6 +18,7 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 - **23 October:** fixed stale generated figures and completed the required 3A magnitude plot. All 18 tests pass; all eight default figures reproduce byte-for-byte. The radians convention is explicit, and phase-unit independence of this magnitude result is verified.
 - **Re-review of `1c7c2df`:** independent checks confirm both fixes. Scores are 9 / 9 / 9 / 9 / 7.5 across the five fronts below. At that review, final 1B instructions, report theory completion and the verified ZIP remained outstanding; the theory completion is recorded below.
 - **Report theory completed, 23 October:** added the assignment’s DFT/inverse and ideal reconstruction formulas, with the preparation notes’ FFT frequency mapping. All 18 existing tests passed again; direct checks of the written transform formulas and bin mapping passed at `1e-10`. A local report preview contains all eight figures.
+- **Report presentation reviewed, 23 October:** reorganized the report with a results table, typeset equations, numbered figure captions and sources. Added [HTML](lab1/report.html) and [PDF](lab1/report.pdf) reading copies. Independent report-only estimate improved from **8.3/10 to 8.8/10**; this is not an official-grade prediction.
 - Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
@@ -48,7 +49,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 2: sampling and reconstruction | Ready for review | Unassigned | [Code](lab1/exercise2.py), three figures and [report explanation](lab1/report.md); no extra numerical reconstruction method added |
 | Exercise 3A: alias-free sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), [magnitude plot](lab1/figures/ex3a_spectrum.png) and report complete; 128 samples at 256 Hz; explicit radians convention and phase independence verified |
 | Exercise 3B: aliases at 20 kHz sampling | Ready for review | Unassigned | [Code](lab1/exercise3.py), eight spectra in two figures, alias/sign explanation; explicit permitted choices N=400 and phase=0 |
-| Report and figures | In progress | Unassigned | [Working report](lab1/report.md), completed theory additions and eight reviewed figures; final 1B figure and agreed group/author details remain open |
+| Report and figures | In progress | Unassigned | [Report source](lab1/report.md), [PDF](lab1/report.pdf) and [HTML](lab1/report.html), completed theory additions and eight captioned figures; final 1B figure and agreed group/author details remain open |
 | Reproducibility and review | Ready for review | Unassigned | [18 numerical and rerun tests](lab1/verify.py) pass; clean-folder execution reproduces all eight default figures; [evidence and limits](lab1/VERIFICATION.md) |
 | ZIP and eClass submission | Not started | Unassigned | One ZIP with separate commented code, report and execution instructions; verify upload and retain confirmation |
 
@@ -80,6 +81,25 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 2 reconstruction discussion | Uses the required original/samples plots and written theory, following preparation pp. 19–21 | No extra numerical reconstruction algorithm introduced |
 | Exercise 3 phase and 3B record length | 3A uses an explicit radians convention; the printed unit remains unconfirmed, but the requested magnitude is invariant at the chosen bins. 3B uses documented phase 0 and 400 samples | 3A magnitude complete; no claim of staff clarification |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
+
+## Report organization and presentation review — 23 October 2026
+
+The same expert reviewed the report at `37a598e` and the revised reading copies. The scores below assess the report, not the whole Python project, and do not predict the instructor’s grade.
+
+| Report area | Before → after / 10 |
+|---|---|
+| Mathematical correctness | 9 → 9 |
+| Specification coverage | 8 → 8 |
+| Explanation and reasoning | 9 → 9 |
+| Organization | 8 → 9 |
+| Presentation | 7.5 → 9 |
+| **Overall report estimate** | **8.3 → 8.8** |
+
+The review confirmed preserved DFT/inverse scaling and signs, convolution proof, reconstruction relationships and 3A phase reasoning. The full given 3A expression is now shown. A results table, clear exercise/subpart headings, eight interpretive captions and a source list organize the same work. Ten equations are typeset in both reading copies. Coverage remains 8 because 1B is unfinished; no missing work is concealed by the layout.
+
+**Checks:** compared content with the earlier report; verified eight original figure hashes, eight captions, ten equations, seven HTML contents links and all embedded assets. The HTML is self-contained; the PDF has 11 pages. PDF pages were rendered and visually checked; the expert independently checked representative pages. No clipped equations, overlapping text or unresolved rendering placeholders were found. The HTML design scan returned no findings; its browser layout was not visually rechecked because local-file browser automation is blocked. No solution scripts or numerical figure data changed, so numerical tests were not rerun for this presentation-only change; the last 18-test run remains the report-theory update above.
+
+**Remaining:** 1B’s physical rate, figure and explanation; final run instructions using that rate; agreed author/group details; and a verified ZIP. eClass submissions were not accessed or changed. The PDF and HTML are reading copies, not a completed submission package.
 
 ## Python expert re-review — 23 October 2026
 
@@ -136,6 +156,13 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Report organization, typography and review
+
+- Added the report results table, clearer section/subpart headings, ten typeset equations, eight numbered figure captions and sources. Included PDF and standalone HTML reading copies; retained the Markdown source.
+- Expert report-only score improved from 8.3/10 to 8.8/10; math and coverage scores are unchanged. No new numerical method or result was introduced.
+- Verified content preservation, original figure hashes, embedded assets, captions, navigation and PDF rendering. Documentation links and Git whitespace checked before commit; no numerical-code changes or new numerical test run.
+- 1B and team details remain open. No eClass actions. Next: complete those decisions before final report/package verification.
 
 ### 23 October 2026 — Report theory and preview
 

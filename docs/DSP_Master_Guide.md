@@ -16,6 +16,8 @@
 
 **Report theory completed — 23 October 2026:** added the DFT/inverse pair from assignment p. 1, the ideal low-pass reconstruction model from p. 2, and FFT bin spacing/axis conventions from preparation pp. 18/22. All 18 tests passed again; direct checks of the written transform formulas and bin mapping passed within `1e-10`. A local report preview includes the eight existing figures. 1B’s sampling rate and group details remain open by instruction. No solution code changed and no eClass submissions were accessed or changed.
 
+**Report presentation update — 23 October 2026:** organized the report with a results table, ten typeset equations, eight numbered captions and sources. [PDF](../lab1/report.pdf) and [HTML](../lab1/report.html) reading copies are available alongside the Markdown source. Independent report-only estimate: **8.8/10**, up from 8.3/10; not a predicted official grade. Mathematical content and plotted data are unchanged. 1B and group details remain open, and eClass submissions were not touched. See [shared status](../STATUS.md) for review evidence and limits.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -312,6 +314,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — report presentation:** added organized, typeset PDF/HTML reading copies. Independent report estimate improved to 8.8/10; 1B/team decisions remain open. Content, assets and PDF layout checked; numerical code unchanged.
 
 - **23 October 2026 — report theory:** completed the requested formulas strictly from the supplied sources and created a local preview. All 18 tests and direct formula/bin checks passed; 1B and group decisions remain open. eClass submissions untouched.
 

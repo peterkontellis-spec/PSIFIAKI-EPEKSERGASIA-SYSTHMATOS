@@ -2,6 +2,12 @@
 
 Three short Python scripts follow the assignment and preparation notes. Owners and final group naming remain open.
 
+## Read the report
+
+Open [report.pdf](report.pdf) for the paginated reading copy, or [report.html](report.html) for an offline browser preview with contents links. Both include all eight figures and ten typeset equations. The editable source is [report.md](report.md); refresh both reading copies when that source changes.
+
+These are review drafts. Exercise 1B’s physical sampling rate and figure, group identification and authors remain open. Neither reading copy is a final submission package.
+
 ## Run
 
 Tested with Python 3.12, NumPy 2.5.4 and Matplotlib 3.11.2.
@@ -24,7 +30,7 @@ The scripts save PNG figures in `lab1/figures/` and do not require interactive p
 
 ### VS Code
 
-Open this repository as one folder in VS Code and use its integrated terminal for the commands above. No extra workspace, MATLAB or SciPy is required. If using VS Code's Python run button, select the interpreter inside `.venv`; running through the activated terminal is sufficient without editor-specific configuration. View the saved PNGs and use Markdown Preview for `report.md`. The report still needs completion and a final document format, and the required ZIP is submitted through eClass in a browser.
+Open this repository as one folder in VS Code and use its integrated terminal for the commands above. No extra workspace, MATLAB or SciPy is required. If using VS Code's Python run button, select the interpreter inside `.venv`; running through the activated terminal is sufficient without editor-specific configuration. View the saved PNGs and use Markdown Preview for `report.md`, or read the formatted PDF/HTML copies. The report still needs the pending 1B result and agreed team details. The required ZIP is separate from these reading copies.
 
 ## Exercise 1B remains pending
 

@@ -51,6 +51,13 @@ Tests establish agreement for these inputs and the stated tolerances. They do no
 - Only documentation changed; existing solution scripts and eight committed figures remain unchanged. Checked Markdown links and figure references. The local preview embeds all eight figures and retains the pending 1B/group notices.
 - No extra reconstruction algorithm, final ZIP, deadline recheck or eClass submission action was performed.
 
+## Report presentation update — 23 October 2026
+
+- The source report was reorganized and typeset without changing the solution code or committed plots. Added a results table, eight numbered captions, the full 3A signal and a short source list.
+- Verified that the HTML/PDF contain all eight original figures and ten equations; checked embedded PNG hashes against the source figures, seven HTML contents links and the unresolved 1B/team notices. HTML has no external resources or scripts; local and repository HTML copies are identical.
+- Rendered all 11 PDF pages for visual review. The independent expert inspected representative pages and confirmed no content regression or blocking layout defect. The HTML design scan found no issues; browser rendering was not visually rechecked because local-file browser automation is blocked.
+- No numerical tests were rerun for presentation-only changes. The 18-test result above is from the theory update. The expert’s report-only estimate increased from 8.3/10 to 8.8/10; it is not an official-grade prediction.
+
 ## Reproduce
 
 From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:
