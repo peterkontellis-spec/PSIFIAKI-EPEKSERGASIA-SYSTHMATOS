@@ -10,6 +10,8 @@
 
 **Latest update — 22 October 2026:** Read the original assignment and the supplied 30-page preparation PDF. Added simple scripts, a working report and seven figures; 15 numerical checks and a clean-folder run passed. See [shared status](../STATUS.md) and [verification evidence](../lab1/VERIFICATION.md). Owners and group naming remain open by user instruction. The 1B sampling frequency and 3A phase unit remain unresolved; neither PDF clarifies them. No final ZIP or submission has been made. Live eClass dates were last checked on 16 October; the supplied assignment still gives 29 October at 23:30.
 
+**Independent review — 23 October 2026:** a Python expert reviewed implementation commit `1d70f60`. All 15 tests and seven clean-copy figure reproductions passed; no numerical defect was found. A stale-output issue was reproduced when default runs follow explicit-parameter runs. Final figures and ZIP remain unfinished. See the scorecard and findings in [STATUS.md](../STATUS.md). No solution code was changed during this review.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -304,6 +306,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026:** Recorded the independent expert review in shared status: numerical checks passed; stale-output behavior needs attention; final figures and ZIP remain pending.
 
 - **22 October 2026:** Applied the supplied preparation notes; added the first verified Lab 1 implementation, seven figures and working report. Kept owners, group naming and unclear parameters open. Verification details are recorded in `lab1/VERIFICATION.md`.
 

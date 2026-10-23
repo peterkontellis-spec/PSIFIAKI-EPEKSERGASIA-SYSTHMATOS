@@ -1,7 +1,7 @@
 # DSP shared project status
 
 **Course:** HMMY458 / ΤΗΛ301 — Ψηφιακή Επεξεργασία Σήματος, 2026–2027
-**Last updated:** 22 October 2026 (Europe/Athens)
+**Last updated:** 23 October 2026 (Europe/Athens)
 **Current focus:** Lab 1 — due **29 October 2026, 23:30**
 **Main requirements reference:** [DSP Master Guide](docs/DSP_Master_Guide.md)
 
@@ -78,9 +78,38 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 3 phase and 3B record length | 3A unit still open; 3B uses documented phase 0 and 400 samples because neither is prescribed there | Do not silently assume degrees in 3A |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
 
+## Independent Python expert review — 23 October 2026
+
+Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` against the supplied assignment, preparation notes, code, report and tests. **Not ready to submit.** This was an independent review; no solution code was changed.
+
+| Review front | Score / 10 | Assessment |
+|---|---|---|
+| Assignment and preparation compliance | 8 | Specified methods used; final 1B and 3A figures remain missing |
+| DSP and mathematical correctness | 9 | No numerical defect found in tested calculations |
+| Python clarity and simplicity | 9 | Straightforward, readable scripts and explicit parameters |
+| Testing and reproducibility | 8 | All 15 tests and seven exact figure reproductions passed; stale-output behavior reproduced |
+| Report completeness and submission readiness | 6.5 | Substantial working report; two figures and final verified ZIP remain unfinished |
+
+### Findings
+
+1. **Missing required figures:** 1B needs an explicit physical frequency scale. The 3A phase choice changes sample values but does not change the requested magnitude spectrum at the chosen bin-aligned frequencies; withholding that figure is a conservative process choice, not a mathematical necessity. The final interpretation remains open under the current user instruction.
+2. **P2 — earlier outputs survive a pending run:** generate `ex1_spectra.png` using `exercise1.py --fs 1` and `ex3a_spectrum.png` using `exercise3.py --phase-unit degrees`, then rerun both scripts without options. Both files remain unchanged while the scripts report their sections as pending. Relevant branches: [exercise1.py](lab1/exercise1.py), line 79, and [exercise3.py](lab1/exercise3.py), line 43 in the reviewed commit. Explicitly handle or flag existing parameter-dependent outputs and verify this run sequence before packaging. The seven currently committed default figures are unaffected.
+3. **Submission package unfinished:** complete the report, include all figures, assemble the required ZIP and run from a fresh extraction. PDF is a practical report option, not an explicit mandated extension. Owners and group naming remain open.
+
+**Evidence:** independent clean-copy run passed all 15 tests and regenerated all seven committed default PNGs byte-for-byte; selected figures visually checked. No fresh dependency installation or other-OS validation was performed. Test results do not establish absolute certainty.
+
+**Next:** settle the final parameter interpretations, address stale outputs, generate the remaining figures, finish the report and verify the extracted ZIP.
+
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Independent Python expert review
+
+- Reviewed implementation commit `1d70f60` on five fronts; recorded the scorecard above.
+- Independent checks passed: 15 tests and seven byte-for-byte figure reproductions.
+- Recorded a reproduced stale-output issue, the two missing final figures and the unfinished submission package. No solution-code fixes made in this review.
+- Next: address the findings before submission; owners and group naming remain open.
 
 ### 22 October 2026 — First verified implementation
 
