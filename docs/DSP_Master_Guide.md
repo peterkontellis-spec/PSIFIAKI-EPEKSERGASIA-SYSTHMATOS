@@ -12,6 +12,8 @@
 
 **Independent review — 23 October 2026:** a Python expert reviewed implementation commit `1d70f60`. All 15 tests and seven clean-copy figure reproductions passed; no numerical defect was found. A stale-output issue was reproduced when default runs follow explicit-parameter runs. Final figures and ZIP remain unfinished. See the scorecard and findings in [STATUS.md](../STATUS.md). No solution code was changed during this review. The subsequent fix and completed 3A plot are recorded above; the original scorecard remains tied to the reviewed commit.
 
+**Independent re-review — 23 October 2026:** the expert reviewed `1c7c2df`, independently passed all 18 tests and reproduced all eight figures exactly. Stale outputs are fixed and 3A is complete. Scores for compliance, mathematics, clarity, testing and readiness are **9 / 9 / 9 / 9 / 7.5**. Remaining: 1B’s physical scale and plot; final instructions containing the agreed `--fs` value; a short report theory completion using the existing assignment formulas; team identification; and the actual extracted-ZIP check and upload. See the detailed checklist in [STATUS.md](../STATUS.md). The theory additions are a reviewer interpretation of the report requirements, not extra numerical methods. No live deadline recheck was performed.
+
 ## 1. Immediate priorities and deadlines
 
 | Action | Deadline / timing | Verified source |
@@ -308,6 +310,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **23 October 2026 — re-review:** recorded the updated expert scores and exact remaining submission checklist. Independent checks confirm 18 tests, eight exact figure reproductions and both resolved findings; no solution code changed.
 
 - **23 October 2026 — fixes:** resolved stale generated figures and completed the 3A magnitude plot and explanation. Verified phase independence within `1e-12`, 18 passing tests and eight byte-for-byte figure reproductions. 1B and the final package remain pending.
 

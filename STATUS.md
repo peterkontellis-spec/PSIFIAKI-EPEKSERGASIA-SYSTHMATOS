@@ -16,6 +16,7 @@ Use **Not started**, **In progress**, **Ready for review**, **Done**, or **Block
 - Initial inspection of `main` at `d2346ae` found only [README.txt](README.txt). No exercise code, figures, report or submission ZIP was committed at that point. Teammates' uncommitted/offline work is unknown.
 - **22 October:** added simple Lab 1 scripts, 15 passing numerical checks, seven reproducible figures and a working report. See [verification](lab1/VERIFICATION.md) and [run instructions](lab1/README.md).
 - **23 October:** fixed stale generated figures and completed the required 3A magnitude plot. All 18 tests pass; all eight default figures reproduce byte-for-byte. The radians convention is explicit, and phase-unit independence of this magnitude result is verified.
+- **Re-review of `1c7c2df`:** independent checks confirm both fixes. Scores are 9 / 9 / 9 / 9 / 7.5 across the five fronts below. Final 1B instructions, a short report theory completion and the verified ZIP remain outstanding.
 - Owners and group naming remain open by user instruction. Exercise 1B’s final Hz plot still awaits its physical sampling rate; the unspecified 3A phase unit does not block its completed magnitude plot.
 - eClass showed **Group 69, 3/3 members**, for the signed-in account on 16 October. Earlier chat/repository references to Group 41 need team reconciliation before naming final deliverables; no group membership was changed.
 - No submission was shown for the signed-in account during the 16 October eClass check. A teammate's separate submission has not been independently checked.
@@ -54,7 +55,7 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 
 1. Review the verified scripts and working report; owners and group naming stay open.
 2. Clarify the physical sampling rate for 1B; generate and review its final plot.
-3. Complete the report with that result and agreed group/author details.
+3. Complete the report with that result, the short theory additions identified in re-review, and agreed group/author details. Put the agreed `--fs` value in the main run instructions.
 4. Repeat only affected checks after any changes, then perform a final review against every subquestion.
 5. Build the ZIP, run its code from a fresh extraction, and verify the group upload before 29 October at 23:30. Select a submission owner explicitly.
 
@@ -78,6 +79,32 @@ The linked files now exist. Owners remain unassigned until the team agrees. Read
 | Exercise 2 reconstruction discussion | Uses the required original/samples plots and written theory, following preparation pp. 19–21 | No extra numerical reconstruction algorithm introduced |
 | Exercise 3 phase and 3B record length | 3A uses an explicit radians convention; the printed unit remains unconfirmed, but the requested magnitude is invariant at the chosen bins. 3B uses documented phase 0 and 400 samples | 3A magnitude complete; no claim of staff clarification |
 | Labs 2–4 schedule | Verify README dates against official assignments/announcements | Dates remain provisional |
+
+## Python expert re-review — 23 October 2026
+
+Reviewed commit `1c7c2df6e5c7e55492aa53e801f7f663824813f9` against the supplied assignment and preparation notes. **The stale-output defect is resolved and 3A is complete; the project is not yet ready to submit.** No numerical defect was found. This review changed no solution code.
+
+| Review front | Previous → current / 10 | Assessment |
+|---|---|---|
+| Assignment and preparation compliance | 8 → 9 | 3A is complete with an explicit, justified convention; required 1B plot remains missing |
+| DSP and mathematical correctness | 9 → 9 | Tested calculations and the record-specific phase-independence argument are correct |
+| Python clarity and simplicity | 9 → 9 | Small, readable changes; no additional solution methods |
+| Testing and reproducibility | 8 → 9 | Both output regressions pass and eight figures reproduce exactly |
+| Report completeness and submission readiness | 6.5 → 7.5 | 1B, final instructions, report finishing and ZIP verification remain |
+
+**Independent evidence:** all 18 tests passed in a clean copy; all three default scripts ran and all eight PNGs matched committed files byte-for-byte. An explicit `--fs 20` run followed by the default removed only the previous 1B figure and preserved an unrelated file. Degrees followed by default Exercise 3 restored the committed radians-labelled figure. The new 3A plot was visually checked. Its all-bin radians/degrees difference was `3.7623497442574107e-14`, below `1e-12`; peaks are 6 at ±20 Hz and 9 at ±60 Hz. No fresh dependency installation, other-OS run or live eClass recheck was performed.
+
+### Remaining findings and submission checklist
+
+1. **Resolve 1B’s physical sampling rate** under the user’s constraints. [Report](lab1/report.md), line 19 of the reviewed commit, records the missing required Hz plot. Generate and visually inspect it, insert it, and explain the chosen scale and observations.
+2. **Finalize the run instructions with the agreed value.** [README](lab1/README.md), line 15, currently runs Exercise 1 without `--fs`, deliberately removing its spectrum. The final main command must be `python lab1/exercise1.py --fs <agreed-value>` with an actual value. Replace the abbreviated command at line 31 with the full path consistent with the repository-root working directory.
+3. **Finish the report’s theory and presentation.** Add a compact DFT/inverse pair, frequency-bin mapping and ideal low-pass reconstruction relationship with its conditions, using only formulas already in the assignment. This is the reviewer’s interpretation of the general requirement to explain the theoretical relationships used, not an official verbatim equation checklist or a request for another numerical algorithm. Replace working/pending wording after completing 1B.
+4. **Have the team settle author/group identification and the submission owner.** These remain open; no naming or ownership has been inferred. This is a coordination task, not a prescribed filename convention.
+5. **Assemble the required single ZIP:** separate commented Python code, completed report with accessible figures, and short execution instructions. Include the dependencies needed to follow those instructions.
+6. **Verify the actual package:** extract into a fresh folder, follow the final documented commands, run the checks, and confirm all nine expected figures and report references. Current clean-copy testing does not replace this final ZIP check.
+7. **Submit through eClass and retain confirmation.** Repository completion is separate from upload. The recorded deadline remains 29 October 2026 at 23:30 Europe/Athens, last live-checked on 16 October; this review did not recheck announcements.
+
+**Not blockers:** further 3A phase clarification, an additional reconstruction algorithm, a mandatory PDF extension, extra workspace tooling, or broader refactoring. PDF is an optional report format; the specification requires a detailed report, not that particular extension.
 
 ## Independent Python expert review — 23 October 2026
 
@@ -106,6 +133,13 @@ Reviewed implementation commit `1d70f6072584f822a2fde22f880aec8aea09a19a` agains
 ## Change log
 
 Add newest entries first. Each entry should identify what changed, checks performed, remaining issues and the next step. Include a commit or PR link when available; do not try to embed a commit's own hash in that same commit.
+
+### 23 October 2026 — Independent re-review of the fixes
+
+- Python expert re-reviewed `1c7c2df`; scores changed from 8/9/9/8/6.5 to 9/9/9/9/7.5.
+- Independently passed 18 tests, reproduced eight PNGs exactly, and verified both explicit-parameter/default reruns. No numerical defect found; 3A and stale-output findings are resolved.
+- Recorded the remaining 1B plot, final explicit-rate instructions, compact report theory additions, team identification and extracted-ZIP verification/upload checklist.
+- Documentation-only update; no solution-code changes. Local Markdown links and whitespace checked before commit. No live eClass recheck.
 
 ### 23 October 2026 — Stale-figure fix and completed 3A magnitude
 
