@@ -70,12 +70,17 @@ class Exercise1Checks(unittest.TestCase):
     def test_explicit_frequency_axis_and_normalization(self):
         _, x, _, y = ex1.sequences()
         z = ex1.convolution(x, y)
-        # Test parameters only: neither rate is claimed to be assigned by staff.
+        # 1 Hz is the report convention; 20 Hz checks axis scaling independently.
         f1, m1 = ex1.spectra(x, y, z, 1)
         f20, m20 = ex1.spectra(x, y, z, 20)
         np.testing.assert_allclose(f20, 20 * f1)
         np.testing.assert_allclose(m20, m1)
         self.assertAlmostEqual(m1[0][8], x.sum() / 16)
+        np.testing.assert_allclose(f1, np.arange(-8, 8) / 16, rtol=0, atol=1e-15)
+        for n, values, magnitude in zip((np.arange(-4, 5), np.arange(-2, 6),
+                                         np.arange(-6, 10)), (x, y, z), m1):
+            direct = np.abs(np.exp(-2j * np.pi * f1[:, None] * n) @ values) / 16
+            np.testing.assert_allclose(magnitude, direct, rtol=0, atol=1e-12)
         for fs in (0, -1, np.nan, np.inf):
             with self.assertRaises(ValueError):
                 ex1.spectra(x, y, z, fs)
@@ -184,19 +189,20 @@ class FigureRerunChecks(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         return result.stdout
 
-    def test_pending_1b_removes_only_its_old_figure(self):
+    def test_default_1b_restores_report_scale_and_preserves_other_files(self):
         self.run_script("exercise1.py", "--fs", "1")
         figure = self.root / "figures/ex1_spectra.png"
         self.assertTrue(figure.is_file())
+        default_png = figure.read_bytes()
         unrelated = self.root / "figures/teammate-notes.txt"
         unrelated.write_text("Keep this file.")
+        self.run_script("exercise1.py", "--fs", "20")
+        self.assertNotEqual(figure.read_bytes(), default_png)
         output = self.run_script("exercise1.py")
-        self.assertIn("Exercise 1B pending", output)
-        self.assertFalse(figure.exists())
+        self.assertIn("Exercise 1B: fs = 1 Hz", output)
+        self.assertEqual(figure.read_bytes(), default_png)
         self.assertEqual(unrelated.read_text(), "Keep this file.")
         self.assertTrue((self.root / "figures/ex1_convolution.png").is_file())
-        self.run_script("exercise1.py")  # Also succeeds with no old figure.
-        self.assertFalse(figure.exists())
 
     def test_default_3a_replaces_previous_phase_output(self):
         output = self.run_script("exercise3.py")

@@ -8,21 +8,9 @@
 
 **Working reference:** This is the maintained master guide for the DSP chat, as requested by the user on 16 October 2026. Use it as the main reference unless the user directs otherwise. Update verified course requirements from official HMMY458 sources and record actual work progress separately from assumptions. Keep DSP and ΨΥΣ course information separate.
 
-**Latest update — 23 October 2026:** fixed stale generated figures and completed the required 3A magnitude plot using the explicit radians convention. At 128 samples and 256 Hz, radians/degrees give the same magnitudes within `1e-12`; the phase unit remains unconfirmed but does not block this result. All 18 numerical/rerun tests passed and all eight default figures reproduced byte-for-byte. See [shared status](../STATUS.md) and [verification evidence](../lab1/VERIFICATION.md). Owners and group naming remain open. The final 1B Hz plot still awaits its physical sampling rate. No final ZIP or submission has been made. Live eClass dates were last checked on 16 October; the supplied assignment gives 29 October at 23:30.
+**Work update — 27 October 2026:** Lab 1 implementation, report and package are complete. The [Greek PDF](../lab1/report_el.pdf) and [English PDF](../lab1/report.pdf) each contain 11 pages, nine figures and ten display equations. The [ZIP](../deliverables/DSP_Lab1.zip) was checked from fresh extraction: all three scripts and 18 tests passed; all nine PNGs reproduced byte-for-byte. The user requested blank name, student-ID and group-number fields at the start; fill them before uploading. Exercise 1B uses the explicitly stated convention `fs = 1 Hz`, `Ts = 1 s`, with a note that the specification does not determine the sampling frequency. See [shared status](../STATUS.md), [verification](../lab1/VERIFICATION.md) and the [dated review history](status_history_2026-10-23.md).
 
-**Independent review — 23 October 2026:** a Python expert reviewed implementation commit `1d70f60`. All 15 tests and seven clean-copy figure reproductions passed; no numerical defect was found. A stale-output issue was reproduced when default runs follow explicit-parameter runs. Final figures and ZIP remain unfinished. See the scorecard and findings in [STATUS.md](../STATUS.md). No solution code was changed during this review. The subsequent fix and completed 3A plot are recorded above; the original scorecard remains tied to the reviewed commit.
-
-**Independent re-review — 23 October 2026:** the expert reviewed `1c7c2df`, independently passed all 18 tests and reproduced all eight figures exactly. Stale outputs are fixed and 3A is complete. Scores for compliance, mathematics, clarity, testing and readiness are **9 / 9 / 9 / 9 / 7.5**. Remaining: 1B’s physical scale and plot; final instructions containing the agreed `--fs` value; a short report theory completion using the existing assignment formulas; team identification; and the actual extracted-ZIP check and upload. See the detailed checklist in [STATUS.md](../STATUS.md). The theory additions are a reviewer interpretation of the report requirements, not extra numerical methods. No live deadline recheck was performed.
-
-**Report theory completed — 23 October 2026:** added the DFT/inverse pair from assignment p. 1, the ideal low-pass reconstruction model from p. 2, and FFT bin spacing/axis conventions from preparation pp. 18/22. All 18 tests passed again; direct checks of the written transform formulas and bin mapping passed within `1e-10`. A local report preview includes the eight existing figures. 1B’s sampling rate and group details remain open by instruction. No solution code changed and no eClass submissions were accessed or changed.
-
-**Report presentation update — 23 October 2026:** organized the report with a results table, ten typeset equations, eight numbered captions and sources. [PDF](../lab1/report.pdf) and [HTML](../lab1/report.html) reading copies are available alongside the Markdown source. Independent report-only estimate: **8.8/10**, up from 8.3/10; not a predicted official grade. Mathematical content and plotted data are unchanged. 1B and group details remain open, and eClass submissions were not touched. See [shared status](../STATUS.md) for review evidence and limits.
-
-**Greek report — 23 October 2026:** added a simpler Greek [source](../lab1/report_el.md), [PDF](../lab1/report_el.pdf) and [HTML preview](../lab1/report_el.html), including Greek labels and captions for all eight figures. The ten display equations and all plotted data/axis ranges match the English version exactly. All 11 PDF pages were rendered and checked. English artifacts and solution scripts are unchanged; the earlier expert score applies to the English report. 1B and team details remain open. No eClass access or submission action.
-
-**Greek report review and polish — 23 October 2026:** at `1f67156`, the Python expert and aesthetics agent each rated the Greek report 8.8/10; the expert independently passed all 18 tests. Applied clearer wording, larger text in four multi-panel plots and a 3B continuation heading. Verified unchanged equations, plotted data and axis ranges, with all 11 PDF pages visually checked. The [Greek PDF](../lab1/report_el.pdf) and [HTML](../lab1/report_el.html) are refreshed; [shared status](../STATUS.md) records the evidence. 1B and team details remain open, and eClass was not accessed.
-
-**Post-polish re-review — 23 October 2026:** both agents reviewed `914f4c7` and rated it **9.0/10** on their respective five fronts. All previous wording/presentation suggestions are resolved; no additional required report correction was found beyond 1B and team identification. Equations, code identity, embedded assets and current PDF layout were checked; the numerical suite was not rerun because code/tests/dependencies are unchanged from the independent 18-test pass. Final run instructions, final report refresh and a ZIP verified from fresh extraction remain outstanding. No report/code changes or eClass actions during the review. See [STATUS.md](../STATUS.md) for scorecards and limits.
+No eClass action was performed. Live course information was last checked on 16 October; the supplied assignment gives 29 October at 23:30. The work update does not change those verification dates.
 
 ## 1. Immediate priorities and deadlines
 
@@ -70,26 +58,26 @@ x[n] = 10 - n       for -4 ≤ n ≤ 4; 0 elsewhere
 y[n] = 0.8^(n+1)    for -2 ≤ n ≤ 5; 0 elsewhere
 ```
 
-- [ ] Create and plot both discrete-time sequences.
-- [ ] Calculate their convolution **from the convolution formula**, rather than using only a library convolution call.
-- [ ] Display both initial sequences and the convolution result.
-- [ ] Verify against **`numpy.convolve` or `scipy.signal.convolve`**.
-- [ ] Explain how each input sequence’s length affects the output.
+- [x] Create and plot both discrete-time sequences.
+- [x] Calculate their convolution **from the convolution formula**, rather than using only a library convolution call.
+- [x] Display both initial sequences and the convolution result.
+- [x] Verify against **`numpy.convolve` or `scipy.signal.convolve`**.
+- [x] Explain how each input sequence’s length affects the output.
 
 **Derived checks:** the nonzero sequences have lengths **9** and **8**. Full linear convolution has **16** samples, with index support **−6 through 9**. Keep physical sequence indices distinct from zero-based array positions. These values are mathematical checks derived from the supplied sequences. [PDF, p. 3, Exercise 1A][D2]
 
 #### B. Frequency-domain representation
 
-- [ ] Use **`numpy.fft.fft`** to transform the signals.
-- [ ] Plot their **magnitude spectra on the same graph**, with frequency in **Hz**.
-- [ ] Make the sample interval/frequency assumption explicit; see the uncertainty below.
+- [x] Use **`numpy.fft.fft`** to transform the signals.
+- [x] Plot their **magnitude spectra on the same graph**, with frequency in **Hz**.
+- [x] Make the sample interval/frequency assumption explicit; see the uncertainty below.
 
 The wording refers to the preceding signals. At minimum show the two input spectra together; including a clearly labelled convolution spectrum as well is a prudent way to cover the broader interpretation, not an explicitly enumerated third spectrum requirement. [PDF, p. 3, Exercise 1B][D2]
 
 #### C. Demonstrate the convolution theorem
 
-- [ ] Show that convolution in time corresponds to multiplication in frequency for the supplied sequences.
-- [ ] Explain the relation and demonstrate agreement numerically/graphically.
+- [x] Show that convolution in time corresponds to multiplication in frequency for the supplied sequences.
+- [x] Explain the relation and demonstrate agreement numerically/graphically.
 
 **Implementation guidance, not an extra official constraint:** use a common FFT length of at least **16** for linear-convolution comparison. Insufficient padding makes the inverse FFT of the product a circular convolution. Align sequence origins consistently when comparing transforms. State any numerical tolerance used.
 
@@ -108,13 +96,13 @@ x(t) = 20 cos(10πt) - 40 sin(5πt)
 
 #### A. Continuous-time signal representation
 
-- [ ] Create and plot the signal in Python on the specified interval.
-- [ ] Use a sufficiently fine numerical time grid to represent the continuous curve, and document that choice.
+- [x] Create and plot the signal in Python on the specified interval.
+- [x] Use a sufficiently fine numerical time grid to represent the continuous curve, and document that choice.
 
 #### B. Spectrum and Nyquist rate
 
-- [ ] Transform the signal into the frequency domain, `X[f]`.
-- [ ] Find and state the signal’s Nyquist sampling rate in the report.
+- [x] Transform the signal into the frequency domain, `X[f]`.
+- [x] Find and state the signal’s Nyquist sampling rate in the report.
 
 **Derived theory checks:** `10π = 2π·5`, so the cosine is **5 Hz**; `5π = 2π·2.5`, so the sine is **2.5 Hz**. The highest frequency is **5 Hz**, giving a Nyquist rate of **10 samples/s**. Distinguish this signal-dependent rate from the Nyquist frequency `fs/2` of a chosen sampling system.
 
@@ -126,9 +114,9 @@ x(t) = 20 cos(10πt) - 40 sin(5πt)
 | `Ts = 1/10 s` | `fs = 10 Hz` |
 | `Ts = 1/5 s` | `fs = 5 Hz` |
 
-- [ ] For **each** period, plot the original signal and its sampled representation together.
-- [ ] Explain what happens to the reconstructed signal as the sampling period changes, and why.
-- [ ] Address whether the reconstructed result changes when the original plotting interval becomes **`0 < t < 5000 ms`**, i.e. **5 seconds**.
+- [x] For **each** period, plot the original signal and its sampled representation together.
+- [x] Explain what happens to the reconstructed signal as the sampling period changes, and why.
+- [x] Address whether the reconstructed result changes when the original plotting interval becomes **`0 < t < 5000 ms`**, i.e. **5 seconds**.
 
 **Implementation as of 22 October:** follows the preparation notes’ original-curve and sampled-point plots, with a written discussion of reconstruction from the specified theory. No numerical interpolation or reconstruction routine is added. A longer observation interval changes spectral resolution and finite-record effects; it does not raise the sampling rate or remove aliasing by itself.
 
@@ -165,16 +153,16 @@ x(t) = sin(2π f0 t + φ)
 fs = 20,000 Hz
 ```
 
-- [ ] Write the discrete-time expression and explain its derivation:
+- [x] Write the discrete-time expression and explain its derivation:
 
 ```text
 x[n] = sin(2π (f0 / 20000) n + φ)
 ```
 
-- [ ] Generate signals at **500, 1000, 1500 and 2000 Hz**.
-- [ ] Plot the spectrum of **each** and explain the observed behavior.
-- [ ] Repeat for **18000, 18500, 19000 and 19500 Hz**.
-- [ ] Explain the aliasing in the second set.
+- [x] Generate signals at **500, 1000, 1500 and 2000 Hz**.
+- [x] Plot the spectrum of **each** and explain the observed behavior.
+- [x] Repeat for **18000, 18500, 19000 and 19500 Hz**.
+- [x] Explain the aliasing in the second set.
 
 **Derived study checks:** at a 20 kHz sample rate, the second set has baseband alias magnitudes **2000, 1500, 1000 and 500 Hz**, respectively. For a sine, account for sign/phase: matching magnitude-spectrum peaks does not necessarily imply identical sample values with the same phase. State whether your plot uses a one-sided or two-sided frequency axis.
 
@@ -201,18 +189,22 @@ The report must:
 
 These requirements appear both in the assignment description and the PDF. [Assignment][D1], [PDF, p. 4][D2]
 
-### Suggested package layout — not a required naming convention
+### Verified package layout — neutral naming
 
 ```text
-DSP_Lab1_GroupXX.zip
-  report.pdf
-  README.txt
-  exercise1.py
-  exercise2.py
-  exercise3.py
+DSP_Lab1.zip
+  DSP_Lab1/
+    README.txt
+    lab1/
+      report.pdf
+      exercise1.py
+      exercise2.py
+      exercise3.py
+      verify.py
+      requirements.txt
 ```
 
-PDF is a practical report format, but the reviewed sources do not explicitly mandate the report extension. Script organization and ZIP filename above are suggestions. A requirements file and saved figures may help reproducibility but are not separately listed as compulsory deliverables. Do not assume a notebook alone replaces the requested separate code and detailed report.
+PDF is a practical report format, but the reviewed sources do not explicitly mandate the report extension. Script organization and the neutral ZIP filename are implementation choices, not assigned naming rules. The report begins with blank fields for actual names, student IDs and group number. A requirements file and saved figures may help reproducibility but are not separately listed as compulsory deliverables. Do not assume a notebook alone replaces the requested separate code and detailed report.
 
 ## 5. Mandatory examination: official requirements
 
@@ -260,20 +252,20 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 
 ### Implementation and report
 
-- [ ] Exercise 1: both sequences, formula-based convolution, library verification, correct indices/length, spectra and convolution theorem.
-- [ ] Exercise 2: specified signal, initial 0.5-second interval, spectrum/Nyquist reasoning, all three sampling periods and 5-second comparison.
+- [x] Exercise 1: both sequences, formula-based convolution, library verification, correct indices/length, spectra and convolution theorem.
+- [x] Exercise 2: specified signal, initial 0.5-second interval, spectrum/Nyquist reasoning, all three sampling periods and 5-second comparison.
 - [x] Exercise 3A: 128 samples, justified alias-free sampling rate, Hz spectrum, phase interpretation recorded; verified 23 October.
-- [ ] Exercise 3B: discrete-time formula, all eight specified frequencies, spectra and alias explanations.
-- [ ] Assumptions about sample intervals, phase, reconstruction and record lengths are explicit.
-- [ ] Every graph has a title, labelled axes and useful limits.
-- [ ] Every subquestion has theoretical reasoning and conclusions in the report.
-- [ ] Python files contain meaningful comments and are separate from the report.
-- [ ] Execution instructions describe dependencies and how to run the code.
+- [x] Exercise 3B: discrete-time formula, all eight specified frequencies, spectra and alias explanations.
+- [x] Assumptions about sample intervals, phase, reconstruction and record lengths are explicit.
+- [x] Every graph has a title, labelled axes and useful limits.
+- [x] Every subquestion has theoretical reasoning and conclusions in the report.
+- [x] Python files contain meaningful comments and are separate from the report.
+- [x] Execution instructions describe dependencies and how to run the code.
 
 ### Submission and examination
 
-- [ ] ZIP opens correctly and contains the report, code and execution instructions.
-- [ ] Code runs after extracting into a fresh folder, with all necessary files included.
+- [x] ZIP opens correctly and contains the report, code and execution instructions.
+- [x] Code runs after extracting into a fresh folder, with all necessary files included.
 - [ ] Submit one group ZIP **before 29 October 2026, 23:30**.
 - [ ] Verify the submission in eClass and retain the uploaded copy/confirmation.
 - [ ] Each member studies the lab concepts and follows later exam announcements.
@@ -283,12 +275,12 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 
 | Item | What is known / what remains open |
 |---|---|
-| Exercise 1 frequency units | Hz is requested; no physical sample interval is supplied. Declare an assumption or obtain clarification. |
-| Exercise 1B spectra | The wording refers to the preceding signals without an explicit list; show both inputs together and consider including the convolution spectrum clearly labelled. |
+| Exercise 1 frequency units | No physical interval is supplied. The completed report explicitly assumes Ts = 1 s, fs = 1 Hz, and retains the requested uncertainty note. |
+| Exercise 1B spectra | Both inputs and the convolution are plotted together and labelled, using a common 16-point FFT and normalization. |
 | Exercise 2 reconstruction | Uses original/samples plots from the preparation and written theory; no additional reconstruction algorithm. |
 | Exercise 3A phase | `+30` is printed without units. Radians are explicitly used; the requested magnitude is complete because the two interpretations agree within tolerance at the chosen bins. Instructor intent remains unconfirmed. |
-| Exercise 3B phase and record length | Neither a numerical phase nor a sample count is prescribed for this subpart. |
-| Report/ZIP naming | ZIP is compulsory; report extension and filename conventions are not established. |
+| Exercise 3B phase and record length | The stated choices are phase 0 and 400 samples; neither is prescribed for this subpart. |
+| Report/ZIP naming | The neutral DSP_Lab1.zip contains the Greek PDF and separate code/instructions. The first-page identity fields remain blank as requested. |
 | Late submission policy | The deadline is verified; a specific late penalty or extension rule was not verified. |
 | Exam details | Format, duration, scope of participation and ≥5 condition are confirmed; exact questions/date/materials are not. |
 | Credit retention | Eligible prior academic years are listed; individual eligibility is not verified here. |
@@ -300,10 +292,10 @@ The supplied guide was originally reconstructed from official course sources whe
 | Item | Status / evidence date | Evidence / next action |
 |---|---|---|
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
-| Assignment availability | **Only Lab 1 currently listed** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
+| Assignment availability | **Only Lab 1 listed on 16 October** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **In progress, 23 October** | Three scripts, eight figures and 18 passing checks. Stale outputs fixed; 3A magnitude and report theory complete. Greek and English report copies available. Final 1B plot, team details and package remain pending; see [STATUS.md](../STATUS.md). |
-| Lab 1 submission | **No submission shown for the signed-in account** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
+| Lab 1 implementation/report | **Complete and verified, 27 October** | Three scripts, nine figures, 18 passing checks; Greek/English reports and freshly extracted ZIP checked. Fill the requested identification fields before upload; see [STATUS.md](../STATUS.md). |
+| Lab 1 submission | **No submission shown at the 16 October check** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
 | Written lab exam | **30 minutes, multiple choice, grade ≥5 required for lab credit** | [Laboratory announcement][D3], verified earlier in this DSP chat on 16 October; exact date/time and permitted materials remain open. |
@@ -320,6 +312,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **27 October 2026 — completion:** completed 1B with the stated 1 Hz assumption and uncertainty note; removed report draft labels; added blank names/IDs/group fields; checked both 11-page reports and the ZIP. All 18 tests and nine figure reproductions passed after fresh extraction. No eClass action. Earlier dated entries below describe historical states.
 
 - **23 October 2026 — post-polish re-review:** both agents rated `914f4c7` at 9.0/10 and found no further required report fix beyond 1B/team details. Confirmed wording/layout improvements and unchanged mathematics/code; recorded the remaining instructions and verified-ZIP work. Documentation-only update; eClass untouched.
 

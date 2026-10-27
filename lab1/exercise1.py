@@ -37,7 +37,7 @@ def spectra(x, y, z, fs):
     return f, magnitudes
 
 
-def main(fs=None):
+def main(fs=1.0):
     nx, x, ny, y = sequences()
     nz = np.arange(nx[0] + ny[0], nx[-1] + ny[-1] + 1)
     z = convolution(x, y)
@@ -46,9 +46,6 @@ def main(fs=None):
 
     out = Path(__file__).parent / "figures"
     out.mkdir(exist_ok=True)
-    if fs is None:
-        # This script owns this generated file. Do not retain an earlier Hz choice.
-        (out / "ex1_spectra.png").unlink(missing_ok=True)
     fig, axes = plt.subplots(3, 1, figsize=(9, 8), layout="constrained")
     for ax, n, values, title in zip(axes, (nx, ny, nz), (x, y, z),
                                    ("x[n]", "y[n]", "z[n] = x[n] * y[n]")):
@@ -79,10 +76,7 @@ def main(fs=None):
     print(f"Maximum NumPy difference: {np.max(np.abs(z - reference)):.3e}")
     print(f"Maximum FFT-product difference: {np.max(np.abs(Z - X * Y)):.3e}")
 
-    if fs is None:
-        print("Exercise 1B pending: supply --fs only after choosing/clarifying the Hz scale. "
-              "Any earlier ex1_spectra.png has been removed.")
-        return
+    # The question gives no sample interval. Use Ts = 1 s unless specified.
     f, magnitudes = spectra(x, y, z, fs)
     fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
     for values, name in zip(magnitudes, ("x", "y", "z = x * y")):
@@ -93,12 +87,14 @@ def main(fs=None):
     ax.grid(alpha=0.3)
     fig.savefig(out / "ex1_spectra.png", dpi=150)
     plt.close(fig)
+    print(f"Exercise 1B: fs = {fs:g} Hz, FFT spacing = {fs / len(z):g} Hz.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fs", type=float, help="Explicit Exercise 1 sampling frequency in Hz")
+    parser.add_argument("--fs", type=float, default=1.0,
+                        help="Exercise 1 sampling frequency in Hz (default: 1 Hz, Ts = 1 s convention)")
     args = parser.parse_args()
-    if args.fs is not None and (not np.isfinite(args.fs) or args.fs <= 0):
+    if not np.isfinite(args.fs) or args.fs <= 0:
         parser.error("--fs must be finite and positive")
     main(args.fs)

@@ -1,100 +1,61 @@
-# Lab 1 verification - updated 23 October 2026
+# Lab 1 verification — 27 October 2026
 
-## Scope
+## Result and scope
 
-The current code implements the questions using loops, NumPy FFTs and Matplotlib plots from the assignment/preparation notes. Checked sections: 1A, 1C, 2, 3A and 3B. The 1B calculation is tested with explicit parameters, but its final Hz plot remains pending the physical frequency scale. The required 3A magnitude result is complete: the two interpretations of the unspecified phase produce identical magnitudes within tolerance at the chosen FFT bins. The calculation uses the explicitly documented radians convention. No final ZIP or submission is claimed. Owners and group naming remain open.
+All three exercise scripts ran successfully from a fresh extraction of [DSP_Lab1.zip](../deliverables/DSP_Lab1.zip). All **18 tests passed**. The extracted code reproduced all **nine PNG figures byte-for-byte** in the checked environment. Both reports contain all questions, nine figures and ten display equations. Names, student IDs and group number are deliberately blank fields for the team to fill.
 
-## Source review
+The methods remain the assignment/preparation's direct convolution sum, NumPy FFTs, original-curve/sample plots and written reconstruction theory. No new interpolation or reconstruction algorithm was introduced. No eClass action was performed.
 
-The supplied PDFs were read locally. Assignment pages 3-4 were visually checked for the exact equations, intervals, frequencies and deliverables. The preparation document was text-reviewed in full, with relevant convolution, sampling and FFT slides also rendered for inspection.
+## Sources
 
-| Document | SHA-256 |
+The supplied assignment and preparation PDF were reviewed locally; relevant formula and exercise pages were visually checked. Their SHA-256 values identify the copies used:
+
+| Source | SHA-256 |
 |---|---|
 | Lab1_2026.pdf | `40125605267afb28d655075c67cdacb7e35a31e9c6804026d4c0785eb937e68c` |
 | Lab1-Preparation.pdf | `89a5411207ccbf191da49924e999528cd7b79a17e373deb61450e9b0b533ac09` |
 
-These identify the supplied copies, not a claim that no newer course announcement exists. Live eClass deadlines were last checked on 16 October. The supplied assignment still states 29 October at 23:30.
+These identify supplied documents, not a fresh check of course announcements. Live eClass was last checked on 16 October. The supplied assignment states 29 October at 23:30.
 
-## Question-to-method mapping
+| Question | Method and source |
+|---|---|
+| 1A | Direct convolution sum, stem plots, `np.convolve` comparison; assignment p. 3, preparation pp. 4–9 |
+| 1B | Common length-16 `fft`, `fftfreq`, `fftshift` and magnitude plot; assignment p. 3, preparation p. 22 |
+| 1C | Algebraic theorem and padded FFT product/inverse; assignment pp. 1/3, preparation pp. 6/22 |
+| 2A–B | Fine time grid, FFT multiplied by dt, theoretical Nyquist rate; assignment p. 3, preparation pp. 18/23/25 |
+| 2C | Original curve and exact sampled points, written reconstruction theory; assignment pp. 2–3, preparation pp. 19–21 |
+| 3A | 128 samples at 256 Hz, FFT, stated radians convention; assignment p. 4, preparation pp. 18/22 |
+| 3B | Eight specified tones at 20 kHz, normalized two-sided FFTs; assignment p. 4, preparation p. 22 |
 
-| Question | Implementation | Source |
-|---|---|---|
-| 1A | Direct sum with loops, stem plots, comparison with `np.convolve` | Assignment p. 3; preparation pp. 4-9 |
-| 1B | `fft`, `fftfreq`, `fftshift`, common magnitude plot; explicit fs required | Assignment p. 3; preparation p. 22 |
-| 1C | Algebraic theorem plus zero-padded FFT product and inverse FFT | Assignment pp. 1/3; preparation pp. 6/22 |
-| 2A-B | Fine time grid; FFT multiplied by dt; theoretical Nyquist rate | Assignment p. 3; preparation pp. 18/23/25 |
-| 2C | Original curve and exact sampled points; written reconstruction explanation | Assignment p. 3; preparation pp. 19-21 |
-| 3A | 128 samples at a chosen 256 Hz; FFT; explicit radians convention, with magnitude invariance verified | Assignment p. 4; preparation pp. 18/22 |
-| 3B | Eight specified frequencies at 20 kHz; normalized two-sided FFTs | Assignment p. 4; preparation p. 22 |
+## Numerical and rerun checks
 
-## Checks performed
+- Python **3.12.14**, NumPy **2.5.4**, Matplotlib **3.11.2**, macOS; figures rendered with `MPLBACKEND=Agg`. The extracted package used the existing verified virtual environment; dependencies were not freshly downloaded or installed.
+- Convolution: correct lengths and indices, exact rational-arithmetic/NumPy comparisons, endpoints, sum, impulse identity and commutativity. Maximum difference from NumPy is `8.882e-16`.
+- Convolution theorem: FFT product and inverse agree; physical-index direct sums independently check origin alignment. Maximum FFT-product error is `5.684e-14`. Tests use explicit tolerances between `1e-12` and `1e-10`, with relative tolerance where stated in the test code.
+- **1B:** convention `fs = 1 Hz`, bin spacing `0.0625 Hz`, bins `−0.5` to `0.4375 Hz`. Direct physical-index Fourier sums independently match all three normalized spectra within absolute `1e-12`. At zero frequency the magnitudes are **5.625**, **0.325089**, **29.25801**. Rescaling fs from 1 to 20 changes the axis only.
+- **1B rerun:** explicit fs 1, then fs 20, then the default restores the exact fs 1 PNG; unrelated teammate files survive. Invalid CLI values `0`, `-1`, `nan`, `inf` return status 2 and leave figures unchanged.
+- Exercise 2: known signal values, all six sample counts for strict open intervals, the 10 Hz boundary identity, the 5 Hz constant-20 alias, and selected direct-transform bins.
+- **3A:** 128 samples, expected ±20/±60 Hz bins and magnitudes 6/9 for both interpretations of `+30`. Their largest all-bin magnitude difference is `3.7623497442574107e-14`, below absolute `1e-12`, relative tolerance zero. The waveform samples differ. A degrees run followed by the default restores the radians-labelled PNG exactly.
+- **3B:** all eight tones have the correct bins and normalized magnitude 0.5. Aliased sample identities also checked at phases 0, 0.3 and −1.2 rad; off-peak magnitudes below `1e-12`. Parseval normalization checked.
 
-- **18 automated tests passed** with Python 3.12.14, NumPy 2.5.4 and Matplotlib 3.11.2 on macOS.
-- Convolution compared with exact rational arithmetic and NumPy; index support, endpoints, sum, impulse response and commutativity checked.
-- FFT product checked against the convolution transform and inverse. Physical-index Fourier sums independently checked origin alignment. Comparisons use explicit absolute tolerances between `1e-12` and `1e-10`, with relative tolerances where appropriate.
-- Exercise 2 checks cover known values, the six sample counts for strict open intervals, the 10 Hz boundary identity and the 5 Hz all-20 alias. FFT magnitudes checked against the direct transform sum at selected bins.
-- Both possible 3A phase interpretations were tested: 128 samples and the expected +/-20 and +/-60 Hz peaks. A direct all-bin comparison shows a maximum difference of `3.7623497442574107e-14`, below absolute tolerance `1e-12` (relative tolerance zero). Samples differ, but the magnitude spectrum is unchanged. Neither interpretation is labelled instructor-confirmed.
-- All eight 3B spectra checked for correct bins and magnitude 0.5. Aliased sample identities checked at phases 0, 0.3 and -1.2 radians; off-peak magnitudes stayed below `1e-12`.
-- The three scripts and tests ran from a clean copy without pre-existing figures. All **eight default PNGs reproduced byte-for-byte** in the same environment.
-- Rerun regression: explicit `--fs 1` followed by the default 1B-pending run removes `ex1_spectra.png`; unrelated teammate files survive; a second default run succeeds with the file absent.
-- Rerun regression: default 3A, then explicit degrees, then default again restores the original radians-labelled PNG byte-for-byte. The figure is regenerated, not retained from the earlier convention.
-- The earlier 22 October check verified invalid fs values (0, negative, NaN, infinity) exit with status 2; argument validation is unchanged. The new 3A figure is included as the requested magnitude result, with its convention and invariance explained.
-- The seven existing published figures were visually inspected on 22 October and are unchanged. The new 3A figure was visually inspected on 23 October for correct peaks, title, axes and legibility.
-- Markdown relative links and Git whitespace checks passed before commit.
+The 1 Hz value is a report convention, not a sampling frequency provided by staff. Tests establish agreement for the supplied inputs and stated tolerances; they do not settle unspecified instructor intent.
 
-Tests establish agreement for these inputs and the stated tolerances. They do not prove universal correctness, settle unstated instructor intent or establish that an incomplete assignment is ready to submit.
+## Report and package checks
 
-## Report theory update — 23 October 2026
+- Greek and English PDF/HTML copies match their repository copies. Each PDF has **11 pages** and **19 image objects**: nine plots and ten equations. All pages rendered and visually inspected; first page, 1B and final Greek page also checked at full size. No clipping, stray source page, missing characters or unfinished labels found.
+- All ten display equations match the previously reviewed Greek/English sources at `b91116d`. All nine Greek plotted datasets and axis ranges match the source calculations before and after relabelling. The eight previous plot files in each language are unchanged; the new 1B plot is added.
+- HTML: nine figure/caption pairs, ten equation images, seven unique resolving contents links, alt text, no scripts or external assets. All nine embedded PNGs match their source bytes. HTML was structurally checked; browser rendering was not retested because local-file browser automation was unavailable.
+- The first page contains three blank name/ID rows and a blank group-number field. Both reports explicitly retain 1B's sampling-frequency uncertainty. Draft/progress notices and internal review scores are absent from the reports.
+- ZIP integrity passed; seven files, relative paths only. Its Greek PDF equals the repository PDF. Instructions were executed from a fresh extraction with no pre-existing figures. All nine generated PNGs match the repository. No status history or agent review scores are included in the ZIP.
 
-- Rechecked assignment pp. 1-2 visually and preparation pp. 18/22. The report now states the DFT/inverse pair, FFT frequency-bin mapping and specified impulse-train/ideal-low-pass reconstruction model. The reconstruction sum follows directly by convolving the supplied impulse train with the supplied sinc response.
-- Re-ran the existing 18 tests: all passed. Independently evaluated the report’s DFT/inverse sums on the 128-sample 3A signal and checked the centred-bin rule for N=16, 128, 400 and 499 against NumPy, with absolute tolerance `1e-10` and relative tolerance zero. Test-only frequency scales did not set a final 1B value or generate its final figure.
-- Only documentation changed; existing solution scripts and eight committed figures remain unchanged. Checked Markdown links and figure references. The local preview embeds all eight figures and retains the pending 1B/group notices.
-- No extra reconstruction algorithm, final ZIP, deadline recheck or eClass submission action was performed.
+| Verified artifact | SHA-256 |
+|---|---|
+| Greek PDF | `b894f5e1c013c1dd01c74308a8fb12973c4cfb4b9abd6fe3468f9fb89ee12fad` |
+| English PDF | `6bf293dfa3e4c5c1b565fbf359626a83dd72e38530cfe6d947779a1cb649534b` |
+| DSP_Lab1.zip | `e452b0e6f2f7a9ae6503e9aaaeee1b4f5918baffd46cc9dc0980d867efef6743` |
 
-## Report presentation update — 23 October 2026
-
-- The source report was reorganized and typeset without changing the solution code or committed plots. Added a results table, eight numbered captions, the full 3A signal and a short source list.
-- Verified that the HTML/PDF contain all eight original figures and ten equations; checked embedded PNG hashes against the source figures, seven HTML contents links and the unresolved 1B/team notices. HTML has no external resources or scripts; local and repository HTML copies are identical.
-- Rendered all 11 PDF pages for visual review. The independent expert inspected representative pages and confirmed no content regression or blocking layout defect. The HTML design scan found no issues; browser rendering was not visually rechecked because local-file browser automation is blocked.
-- No numerical tests were rerun for presentation-only changes. The 18-test result above is from the theory update. The expert’s report-only estimate increased from 8.3/10 to 8.8/10; it is not an official-grade prediction.
-
-## Greek report update — 23 October 2026
-
-- Added [Greek Markdown](report_el.md), [PDF](report_el.pdf) and [standalone HTML](report_el.html), with shorter explanations and eight Greek-labelled figures in `figures/el/`. All ten display equations match the English source exactly. Numerical choices, conclusions and pending items were preserved.
-- Ran temporary copies of the unchanged exercise scripts twice, first capturing the original plotted data and then translating only Matplotlib text. SHA-256 comparisons of all plotted line coordinates, collection segments/offsets and axis ranges matched for all eight figures, both before and after saving. No 1B rate was selected and no 1B figure was produced.
-- Checked embedded PNG bytes against the Greek source files, eight numbered captions, ten equations and seven working contents anchors. HTML uses `lang="el"`, contains all assets locally, and has no external resources or scripts. Output and repository copies are identical.
-- Checked Greek character coverage in the embedded fonts. The PDF contains 11 pages and 18 images (eight figures and ten equations). All pages were rendered and visually inspected, with representative pages inspected at full size; no missing characters, clipped equations or overlapping text were found. HTML browser rendering was not visually rechecked because local-file automation is blocked.
-- Verified that the three solution scripts, verification script, eight original figures and English report files remain byte-for-byte unchanged. No new numerical method was introduced; the 18-test suite was not rerun for translation-only changes. Existing scores apply to the earlier English review, not a new review of this translation.
-- The report remains a draft pending 1B, team identification and final package verification. No eClass access or submission action was performed.
-
-## Greek review and wording/layout polish — 23 October 2026
-
-- The independent Python expert reviewed `1f67156`, confirmed the translation preserves the mathematics, and reran all 18 tests in an isolated copy: passed. A separate aesthetics agent inspected the Greek report. Both review means were 8.8/10; the scorecards are in [STATUS.md](../STATUS.md). These are pre-polish scores, not instructor-grade predictions.
-- Applied the three reviewed wording edits and the 3B high-frequency continuation heading. Enlarged plot titles, axis labels, ticks and legends in Figures 4–5 and 7–8. Moved sampling legends above their axes to keep the curves visible. Tightened summary-table padding to prevent an isolated overflow line; the final PDF still has 11 pages.
-- Ran the unchanged exercise scripts in temporary copies to rebuild the Greek figures. All eight plotted-data hashes (line coordinates, collection segments/offsets and axis limits) match the unmodified plots exactly before and after rendering. Only four Greek PNGs changed; the other four Greek figures and all English figures remain unchanged.
-- All ten display equations still match the English source exactly. Checked eight embedded Greek PNGs against their files, eight captions, seven HTML contents links, the page-10 continuation heading and pending 1B/team notices. The final PDF has 18 image objects, with no missing-glyph or unresolved-rendering markers. All 11 pages were rendered and visually reviewed, including detailed checks of the summary, sampling figures and continuation page.
-- Solution scripts, verification code and English report files are byte-for-byte unchanged. The 1B text and pending notices remain unchanged, and no 1B figure was generated. No new algorithm or parameter choice was introduced. The 18-test suite was not rerun for these presentation-only edits; its latest pass is the independent Greek review recorded above.
-- HTML assets and structure were checked; local-file browser automation remains unavailable. No final ZIP, live deadline recheck or eClass access/submission action.
-
-## Post-polish independent re-review — 23 October 2026
-
-- Both agents reviewed `914f4c7`. The Python expert rated the same report fronts 9/8/9.5/9/9.5; the aesthetics agent rated its five fronts 9/9/9/9/9. Both means are 9.0/10. No additional required report correction was found beyond the deliberately pending 1B and team details; all earlier wording/visual suggestions are resolved.
-- The expert rechecked the assignment pp. 1–4 and relevant preparation material pp. 4 and 18–25. All ten equations match the previous Greek and English sources exactly. The three solution scripts, verification script and dependencies are byte-identical to `1f67156`, so the numerical suite was not rerun. The prior independent 18-test pass is the latest numerical result.
-- Current Greek HTML checks passed: eight figures/captions, 18 embedded images with alt text, eight PNG byte comparisons, seven valid contents anchors, unique IDs and no scripts. Current PDF checks passed: 11 pages, 18 images, eight captions, the page-10 heading and intact pending notices; output and repository copies are identical.
-- Both agents inspected current PDF contact sheets and selected full-size pages; the aesthetics agent closely read seven pages. No clipping, overlap or missing Greek glyphs was found. HTML was source-reviewed, not browser-tested.
-- Final instructions using the agreed 1B rate, final report refresh and a ZIP tested after fresh extraction remain delivery tasks. No ZIP exists yet. No report, code or figure edits, no new numerical methods and no eClass access/submission action were part of this review.
+The package contains the requested blank identification fields; fill them before uploading and refresh the PDF in the ZIP. No new agent grading, staff clarification, live deadline check or eClass submission is claimed. Previous scorecards remain in the [dated history](../docs/status_history_2026-10-23.md).
 
 ## Reproduce
 
-From the repository root, install `lab1/requirements.txt` in a virtual environment, then run:
-
-```sh
-python lab1/verify.py
-python lab1/exercise1.py
-python lab1/exercise2.py
-python lab1/exercise3.py
-```
-
-See [README.md](README.md) for setup, output-replacement behavior and the remaining 1B option.
-
-Reference for library conventions: [NumPy FFT](https://numpy.org/doc/stable/reference/routines.fft.html). The lab methods themselves come from the two course PDFs.
+Follow [README.md](README.md), or extract the ZIP and use its `README.txt`. Run the three scripts and `python lab1/verify.py` from the stated folder. Changing code, assumptions or report content requires refreshing the affected figures/reading copies/package and repeating the relevant checks.
