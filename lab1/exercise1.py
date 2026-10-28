@@ -8,6 +8,7 @@ import numpy as np
 
 
 def sequences():
+    # nx and ny are the sequence indices, not array positions.
     nx = np.arange(-4, 5)
     ny = np.arange(-2, 6)
     x = 10 - nx
@@ -29,8 +30,9 @@ def convolution(x, y):
 def spectra(x, y, z, fs):
     if not np.isfinite(fs) or fs <= 0:
         raise ValueError("Sampling frequency must be finite and positive.")
-    # One common length and scale for the three magnitude spectra.
+    # Use N = 16 for all three FFTs and divide their magnitudes by N.
     nfft = len(z)
+    # fs is in Hz; f contains the centred frequency bins.
     f = np.fft.fftshift(np.fft.fftfreq(nfft, d=1 / fs))
     magnitudes = [np.abs(np.fft.fftshift(np.fft.fft(a, nfft))) / nfft
                   for a in (x, y, z)]
@@ -76,7 +78,7 @@ def main(fs=1.0):
     print(f"Maximum NumPy difference: {np.max(np.abs(z - reference)):.3e}")
     print(f"Maximum FFT-product difference: {np.max(np.abs(Z - X * Y)):.3e}")
 
-    # The question gives no sample interval. Use Ts = 1 s unless specified.
+    # No sample interval is given; assume Ts = 1 s (fs = 1 Hz) by default.
     f, magnitudes = spectra(x, y, z, fs)
     fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
     for values, name in zip(magnitudes, ("x", "y", "z = x * y")):

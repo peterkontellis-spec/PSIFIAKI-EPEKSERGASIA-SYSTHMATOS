@@ -8,7 +8,7 @@
 
 **Working reference:** This is the maintained master guide for the DSP chat, as requested by the user on 16 October 2026. Use it as the main reference unless the user directs otherwise. Update verified course requirements from official HMMY458 sources and record actual work progress separately from assumptions. Keep DSP and ΨΥΣ course information separate.
 
-**Work update — 27 October 2026:** Lab 1 implementation, report and package are complete. The [Greek PDF](../lab1/report_el.pdf) and [English PDF](../lab1/report.pdf) each contain 11 pages, nine figures and ten display equations. The [ZIP](../deliverables/DSP_Lab1.zip) was checked from fresh extraction: all three scripts and 18 tests passed; all nine PNGs reproduced byte-for-byte. The user requested blank name, student-ID and group-number fields at the start; fill them before uploading. Exercise 1B uses the explicitly stated convention `fs = 1 Hz`, `Ts = 1 s`, with a note that the specification does not determine the sampling frequency. See [shared status](../STATUS.md), [verification](../lab1/VERIFICATION.md) and the [dated review history](status_history_2026-10-23.md).
+**Work update — 28 October 2026:** checked the user's completed Greek PDF and prepared the local `DSP_Lab1_Submission.zip` with that exact report, three commented exercise scripts, requirements and short instructions. All supplied deliverable requirements passed review. The 11-page report retains all nine figures and ten equations; names/IDs/group number display correctly. All three scripts ran after fresh extraction, nine plots reproduced exactly and 18 checks passed against the extracted code. Exercise 1B's 1 Hz assumption and uncertainty note remain explicit. Repository PDFs and [ZIP](../deliverables/DSP_Lab1.zip) are reusable templates with blank identification fields. See [submission evidence](lab1_submission_check_2026-10-28.md) and [shared status](../STATUS.md).
 
 No eClass action was performed. Live course information was last checked on 16 October; the supplied assignment gives 29 October at 23:30. The work update does not change those verification dates.
 
@@ -189,22 +189,21 @@ The report must:
 
 These requirements appear both in the assignment description and the PDF. [Assignment][D1], [PDF, p. 4][D2]
 
-### Verified package layout — neutral naming
+### Verified local submission package
 
 ```text
-DSP_Lab1.zip
+DSP_Lab1_Submission.zip
   DSP_Lab1/
     README.txt
     lab1/
-      report.pdf
+      DSP_REPORT1.pdf
       exercise1.py
       exercise2.py
       exercise3.py
-      verify.py
       requirements.txt
 ```
 
-PDF is a practical report format, but the reviewed sources do not explicitly mandate the report extension. Script organization and the neutral ZIP filename are implementation choices, not assigned naming rules. The report begins with blank fields for actual names, student IDs and group number. A requirements file and saved figures may help reproducibility but are not separately listed as compulsory deliverables. Do not assume a notebook alone replaces the requested separate code and detailed report.
+PDF is a practical report format, but the reviewed sources do not explicitly mandate the report extension. Script organization and the neutral ZIP filename are implementation choices, not assigned naming rules. The user-supplied report in the local submission package has completed identification fields; the repository copies remain blank templates. A requirements file and saved figures may help reproducibility but are not separately listed as compulsory deliverables. Do not assume a notebook alone replaces the requested separate code and detailed report.
 
 ## 5. Mandatory examination: official requirements
 
@@ -280,7 +279,7 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 | Exercise 2 reconstruction | Uses original/samples plots from the preparation and written theory; no additional reconstruction algorithm. |
 | Exercise 3A phase | `+30` is printed without units. Radians are explicitly used; the requested magnitude is complete because the two interpretations agree within tolerance at the chosen bins. Instructor intent remains unconfirmed. |
 | Exercise 3B phase and record length | The stated choices are phase 0 and 400 samples; neither is prescribed for this subpart. |
-| Report/ZIP naming | The neutral DSP_Lab1.zip contains the Greek PDF and separate code/instructions. The first-page identity fields remain blank as requested. |
+| Report/ZIP naming | The local DSP_Lab1_Submission.zip contains the user-supplied completed Greek PDF and separate code/instructions. Repository copies remain blank templates. |
 | Late submission policy | The deadline is verified; a specific late penalty or extension rule was not verified. |
 | Exam details | Format, duration, scope of participation and ≥5 condition are confirmed; exact questions/date/materials are not. |
 | Credit retention | Eligible prior academic years are listed; individual eligibility is not verified here. |
@@ -294,7 +293,7 @@ The supplied guide was originally reconstructed from official course sources whe
 | Group registration | **Complete for the signed-in account: Group 69, 3/3 members** | Live [group page][D5] marks it as `Η Ομάδα Μου`. |
 | Assignment availability | **Only Lab 1 listed on 16 October** | Live [assignment list][D9] contains one assignment; no Lab 2–4 briefs or deadlines established in this check. |
 | Lab 1 deadline | **29 October 2026, 23:30**, unchanged | [Assignment][D1] and [October 15 announcement][D8]. |
-| Lab 1 implementation/report | **Complete and verified, 27 October** | Three scripts, nine figures, 18 passing checks; Greek/English reports and freshly extracted ZIP checked. Fill the requested identification fields before upload; see [STATUS.md](../STATUS.md). |
+| Lab 1 implementation/report | **Complete and verified, 27 October** | Three scripts, nine figures, 18 passing checks; Greek/English reports and freshly extracted ZIP checked. The completed PDF is included in the local submission ZIP; see [STATUS.md](../STATUS.md). |
 | Lab 1 submission | **No submission shown at the 16 October check** | Assignment list has no entry under `Έχει υποβληθεί`; assignment detail presents an upload form without a submission record. This does not independently establish whether a teammate has submitted elsewhere. |
 | Tutorial | **22 October 2026, 11:00–12:00** | [October 15 announcement][D8]; includes time for questions about implementation. |
 | Course calendar | **No dated events visible in the October month view during this check** | [Calendar][D7]. Use the explicit announcements and assignment deadline; do not infer dates from an empty calendar. |
@@ -312,6 +311,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **28 October 2026 — completed submission package:** checked the user-supplied filled PDF, refined only code comments, and prepared the six-file local ZIP. Every listed deliverable requirement is covered; all 18 checks and nine figure comparisons passed against extracted code. No eClass action.
 
 - **27 October 2026 — completion:** completed 1B with the stated 1 Hz assumption and uncertainty note; removed report draft labels; added blank names/IDs/group fields; checked both 11-page reports and the ZIP. All 18 tests and nine figure reproductions passed after fresh extraction. No eClass action. Earlier dated entries below describe historical states.
 

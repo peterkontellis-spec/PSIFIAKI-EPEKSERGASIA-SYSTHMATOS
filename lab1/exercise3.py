@@ -8,11 +8,11 @@ import numpy as np
 
 
 def signal_a(phase_unit):
-    # The brief allows a sampling frequency of our choice. 256 > 2 * 60 Hz.
+    # Choose fs above twice the highest frequency: 256 > 2 * 60 Hz.
     fs = 256
-    t = np.arange(128) / fs
+    t = np.arange(128) / fs  # Exactly 128 sampling instants.
     if phase_unit == "radians":
-        phase = 30.0
+        phase = 30.0  # Interpret the printed +30 as radians.
     elif phase_unit == "degrees":
         phase = np.deg2rad(30.0)
     else:
@@ -22,16 +22,16 @@ def signal_a(phase_unit):
 
 
 def signal_b(f0, phase=0.0):
-    fs = 20000
-    # 400 samples give 50 Hz bin spacing; all assigned frequencies fit FFT bins.
-    # The brief does not fix N or phi in 3B. Use phi=0 radians for the plots.
+    fs = 20000  # Sampling frequency in Hz; f0 is the input frequency.
+    # 400 samples give 50 Hz bin spacing; all eight tones fit FFT bins.
+    # N and phase are unspecified in 3B; choose N = 400 and phase = 0 rad.
     n = np.arange(400)
     x = np.sin(2 * np.pi * f0 * n / fs + phase)
     return n, x, fs
 
 
 def spectrum(x, fs):
-    # Preparation p. 22: divide by N. Two-sided amplitudes are A/2 per peak.
+    # Divide by N: a sinusoid of amplitude A gives two peaks of height A/2.
     f = np.fft.fftshift(np.fft.fftfreq(len(x), d=1 / fs))
     magnitude = np.abs(np.fft.fftshift(np.fft.fft(x))) / len(x)
     return f, magnitude
@@ -40,9 +40,8 @@ def spectrum(x, fs):
 def main(phase_unit="radians"):
     out = Path(__file__).parent / "figures"
     out.mkdir(exist_ok=True)
-    # Both tones occupy distinct FFT bins (10 and 30). Their magnitudes are
-    # phase-independent here. Use the standard radians convention explicitly;
-    # this is not a claim that staff clarified the printed +30.
+    # The tones fall on FFT bins 10 and 30, so phase changes do not
+    # change their magnitudes for this sampling rate and record length.
     t, x, fs = signal_a(phase_unit)
     f, magnitude = spectrum(x, fs)
     fig, ax = plt.subplots(figsize=(9, 4), layout="constrained")
@@ -51,7 +50,7 @@ def main(phase_unit="radians"):
                  f"Phase = 30 {phase_unit}; tones on exact FFT bins",
            xlabel="Frequency (Hz)", ylabel="Magnitude |FFT| / N", xlim=(-128, 128))
     ax.grid(alpha=0.3)
-    # Always regenerate, including after a previous --phase-unit choice.
+    # Overwrite the previous plot when the phase convention changes.
     fig.savefig(out / "ex3a_spectrum.png", dpi=150)
     plt.close(fig)
     print(f"Exercise 3A: phase = 30 {phase_unit}; the requested magnitude spectrum "

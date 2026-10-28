@@ -1,6 +1,10 @@
-# Lab 1 verification — 27 October 2026
+# Lab 1 verification — updated 28 October 2026
 
-## Result and scope
+## Latest submission check
+
+The user's completed PDF and final local six-file submission ZIP were verified on 28 October. All identification annotations display and print correctly; report content is unchanged. Only comments in the exercise scripts were refined. All three scripts ran after extraction, all nine PNGs reproduced exactly, and the 18-check suite passed against the extracted code in a separate test folder. See the [requirement-by-requirement check and current hashes](../docs/lab1_submission_check_2026-10-28.md). The filled PDF/ZIP are local delivery files; repository report files retain blank identity fields. The evidence below records the 27 October template review.
+
+## Result and scope — 27 October
 
 All three exercise scripts ran successfully from a fresh extraction of [DSP_Lab1.zip](../deliverables/DSP_Lab1.zip). All **18 tests passed**. The extracted code reproduced all **nine PNG figures byte-for-byte** in the checked environment. Both reports contain all questions, nine figures and ten display equations. Names, student IDs and group number are deliberately blank fields for the team to fill.
 
@@ -52,7 +56,7 @@ The 1 Hz value is a report convention, not a sampling frequency provided by staf
 |---|---|
 | Greek PDF | `b894f5e1c013c1dd01c74308a8fb12973c4cfb4b9abd6fe3468f9fb89ee12fad` |
 | English PDF | `6bf293dfa3e4c5c1b565fbf359626a83dd72e38530cfe6d947779a1cb649534b` |
-| DSP_Lab1.zip | `e452b0e6f2f7a9ae6503e9aaaeee1b4f5918baffd46cc9dc0980d867efef6743` |
+| DSP_Lab1.zip, 27 October version | `e452b0e6f2f7a9ae6503e9aaaeee1b4f5918baffd46cc9dc0980d867efef6743` |
 
 The package contains the requested blank identification fields; fill them before uploading and refresh the PDF in the ZIP. No new agent grading, staff clarification, live deadline check or eClass submission is claimed. Previous scorecards remain in the [dated history](../docs/status_history_2026-10-23.md).
 
