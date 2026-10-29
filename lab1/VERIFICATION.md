@@ -1,6 +1,10 @@
-# Lab 1 verification — updated 28 October 2026
+# Lab 1 verification — updated 29 October 2026
 
-## Latest submission check
+## Final review and fresh installation — 29 October
+
+All three final reviewers found no additional required correction. A new Python 3.12 environment successfully installed the listed requirements; the three README commands ran, nine plots matched exactly and all 18 checks passed against extracted code. The final filled ZIP uses the user's revised README with concise execution instructions restored. [Review details and final hashes](../docs/lab1_final_review_2026-10-29.md).
+
+## Submission check — 28 October
 
 The user's completed PDF and final local six-file submission ZIP were verified on 28 October. All identification annotations display and print correctly; report content is unchanged. Only comments in the exercise scripts were refined. All three scripts ran after extraction, all nine PNGs reproduced exactly, and the 18-check suite passed against the extracted code in a separate test folder. See the [requirement-by-requirement check and current hashes](../docs/lab1_submission_check_2026-10-28.md). The filled PDF/ZIP are local delivery files; repository report files retain blank identity fields. The evidence below records the 27 October template review.
 

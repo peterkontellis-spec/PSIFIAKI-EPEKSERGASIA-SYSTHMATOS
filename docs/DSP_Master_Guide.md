@@ -8,7 +8,7 @@
 
 **Working reference:** This is the maintained master guide for the DSP chat, as requested by the user on 16 October 2026. Use it as the main reference unless the user directs otherwise. Update verified course requirements from official HMMY458 sources and record actual work progress separately from assumptions. Keep DSP and ΨΥΣ course information separate.
 
-**Work update — 28 October 2026:** checked the user's completed Greek PDF and prepared the local `DSP_Lab1_Submission.zip` with that exact report, three commented exercise scripts, requirements and short instructions. All supplied deliverable requirements passed review. The 11-page report retains all nine figures and ten equations; names/IDs/group number display correctly. All three scripts ran after fresh extraction, nine plots reproduced exactly and 18 checks passed against the extracted code. Exercise 1B's 1 Hz assumption and uncertainty note remain explicit. Repository PDFs and [ZIP](../deliverables/DSP_Lab1.zip) are reusable templates with blank identification fields. See [submission evidence](lab1_submission_check_2026-10-28.md) and [shared status](../STATUS.md).
+**Work update — 29 October 2026:** the final local `DSP_Lab1_Group69.zip` passed separate specification, mathematical and student-style reviews, with no additional required correction. The revised README includes short Greek run instructions. A fresh Python 3.12 dependency installation, three script runs, nine exact figure comparisons and all 18 checks passed. The user-filled PDF remains unchanged; all known conventions remain explicit. See the [final review](lab1_final_review_2026-10-29.md) and [shared status](../STATUS.md). Shared repository PDFs/ZIP remain blank identity templates; the filled final package is delivered locally in the DSP chat.
 
 No eClass action was performed. Live course information was last checked on 16 October; the supplied assignment gives 29 October at 23:30. The work update does not change those verification dates.
 
@@ -192,7 +192,7 @@ These requirements appear both in the assignment description and the PDF. [Assig
 ### Verified local submission package
 
 ```text
-DSP_Lab1_Submission.zip
+DSP_Lab1_Group69.zip
   DSP_Lab1/
     README.txt
     lab1/
@@ -279,7 +279,7 @@ These topics are inferred from the lab’s theory and implementation, not a veri
 | Exercise 2 reconstruction | Uses original/samples plots from the preparation and written theory; no additional reconstruction algorithm. |
 | Exercise 3A phase | `+30` is printed without units. Radians are explicitly used; the requested magnitude is complete because the two interpretations agree within tolerance at the chosen bins. Instructor intent remains unconfirmed. |
 | Exercise 3B phase and record length | The stated choices are phase 0 and 400 samples; neither is prescribed for this subpart. |
-| Report/ZIP naming | The local DSP_Lab1_Submission.zip contains the user-supplied completed Greek PDF and separate code/instructions. Repository copies remain blank templates. |
+| Report/ZIP naming | The final local DSP_Lab1_Group69.zip contains the user-supplied completed Greek PDF and separate code/instructions. Repository copies remain blank templates. |
 | Late submission policy | The deadline is verified; a specific late penalty or extension rule was not verified. |
 | Exam details | Format, duration, scope of participation and ≥5 condition are confirmed; exact questions/date/materials are not. |
 | Credit retention | Eligible prior academic years are listed; individual eligibility is not verified here. |
@@ -311,6 +311,8 @@ The repository's `README.txt`, inspected on 16 October 2026 at initial commit `d
 | 4 | 3 December 2026 | 20 December 2026 | Provisional; README only |
 
 ### Update log
+
+- **29 October 2026 — final reviews:** all three reviewers found no further required correction; restored concise run instructions and verified setup in a fresh Python environment. Final local ZIP delivered; no eClass action.
 
 - **28 October 2026 — completed submission package:** checked the user-supplied filled PDF, refined only code comments, and prepared the six-file local ZIP. Every listed deliverable requirement is covered; all 18 checks and nine figure comparisons passed against extracted code. No eClass action.
 

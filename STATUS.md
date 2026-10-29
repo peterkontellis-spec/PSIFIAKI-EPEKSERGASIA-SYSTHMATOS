@@ -1,6 +1,6 @@
 # DSP shared project status
 
-**Updated:** 28 October 2026, Europe/Athens
+**Updated:** 29 October 2026, Europe/Athens
 
 **Course:** HMMY458 / ΤΗΛ301 — Ψηφιακή Επεξεργασία Σήματος, 2026–2027
 
@@ -8,7 +8,7 @@
 
 ## Lab 1
 
-The user supplied the completed Greek PDF on 28 October. Names, student IDs and group number are populated and readable. The local `DSP_Lab1_Submission.zip` contains that exact PDF and the commented exercise scripts, with execution instructions. It passed the requirements review and fresh-extraction checks; see the [submission check](docs/lab1_submission_check_2026-10-28.md). Repository report copies retain blank identification fields as templates. Task/submission ownership remains unassigned.
+The final local `DSP_Lab1_Group69.zip` passed three separate reviews: specification coverage, independent mathematical cross-checking, and student-style/readability. No further required correction was found. The user's report and revised README are preserved, with short Greek execution instructions restored. A fresh dependency installation, all three script runs, nine exact figure comparisons and all 18 numerical/rerun checks passed. See the [final review](docs/lab1_final_review_2026-10-29.md). The filled package is delivered locally in the DSP chat; repository reports remain blank identity templates. Submission ownership remains unassigned.
 
 | Item | Status | Evidence |
 |---|---|---|
@@ -27,9 +27,13 @@ The user supplied the completed Greek PDF on 28 October. Names, student IDs and 
 - **1B:** the specification requests Hz but does not provide a sampling interval. The user authorized reasonable choices on 27 October and explicitly requested an uncertainty note. Both reports state `fs = 1 Hz`, `Ts = 1 s` as an assumption. Another positive sampling frequency rescales the Hz axis without changing these FFT magnitudes. This is not staff clarification.
 - **3A:** `+30` is interpreted in radians. For the chosen 128 samples at 256 Hz, interpreting it in degrees changes the samples but not the requested magnitude spectrum within `1e-12`.
 - **3B:** phase 0 and 400 samples are stated choices; sampling is the assigned 20 kHz.
-- Have the agreed team member upload the local `DSP_Lab1_Submission.zip` delivered in this chat and retain confirmation. It contains the completed PDF; the older repository ZIP is a template with blank identity fields.
+- Have the agreed team member upload the final local `DSP_Lab1_Group69.zip` delivered in this chat and retain confirmation. It contains the completed PDF; the older repository ZIP is a template with blank identity fields.
 
 The supplied assignment gives **29 October 2026, 23:30** for Lab 1. Live eClass information was last checked on **16 October**, not during this update. Labs 2–4 dates in the original [README](README.txt) remain provisional; the [master guide](docs/DSP_Master_Guide.md) records their source and exam requirements.
+
+## Update — 29 October 2026
+
+The user's shorter README had omitted the required execution instructions; restored only a short Greek paragraph and the four commands. Three final reviewers found no additional required correction. Student-style score: 8.8/10, explicitly not an authorship estimate. Verified a fresh dependency installation and execution in Python 3.12; all 18 tests passed and nine plots matched exactly. Delivered the final ZIP with the unchanged filled report and recorded its hash. No eClass action.
 
 ## Update — 28 October 2026
 

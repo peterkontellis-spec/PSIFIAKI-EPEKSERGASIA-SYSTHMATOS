@@ -2,9 +2,9 @@
 
 This repository is for DSP (HMMY458 / ΤΗΛ301) only. Keep ΨΥΣ work separate.
 
-## User constraints updated 28 October 2026
+## User constraints updated 29 October 2026
 
-- Do not invent owners or identity details. The user supplied a completed PDF on 28 October; use that exact PDF for the local `DSP_Lab1_Submission.zip`. Repository report copies and `DSP_Lab1.zip` retain blank identification fields as templates. Do not replace the supplied annotations by inferred values. The filled local package contains personal identification details; do not copy it into shared repository artifacts without a request to publish those details.
+- Do not invent owners or identity details. The user supplied a completed PDF on 28 October; use that exact PDF for the final local `DSP_Lab1_Group69.zip`. Repository report copies and `DSP_Lab1.zip` retain blank identification fields as templates. Do not replace the supplied annotations by inferred values. The filled local package contains personal identification details; do not copy it into shared repository artifacts without a request to publish those details.
 - Follow the assignment and supplied preparation notes strictly. Keep the solution simple, precise and easy to explain. Do not introduce optional methods or features outside the requested questions.
 - Test and verify work before pushing. State the actual checks and numerical tolerances; do not claim absolute certainty from tests.
 - On 27 October the user authorized finishing unspecified implementation choices to the best of our ability. State choices explicitly rather than presenting them as assigned values. Exercise 1B now uses `fs = 1 Hz` (`Ts = 1 s`); retain the user's requested note that the specification does not determine the physical sampling frequency. This supersedes the earlier instruction to keep its plot pending. The 3A radians convention and its verified magnitude invariance remain explicit.
